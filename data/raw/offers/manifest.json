@@ -1,0 +1,14 @@
+{
+  "source": "nextgig/global-job-postings-multi-ats-2026-06",
+  "license": "CC BY 4.0",
+  "count": 120,
+  "per_family": {
+    "backend": 20,
+    "frontend": 20,
+    "data": 20,
+    "devops": 20,
+    "cybersecurity": 20,
+    "technical_product": 20
+  },
+  "notes": "job_description in the source is an LLM summary, not the original posting. We concatenate summary + responsibilities + qualifications. skills_required is stored in the sidecar for evaluation only."
+}

@@ -1,0 +1,2002 @@
+[
+  {
+    "skill_id": "python",
+    "canonical_label": "Python",
+    "aliases": [
+      "Python"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "technical_product"
+    ],
+    "occurrences": 66
+  },
+  {
+    "skill_id": "cicd",
+    "canonical_label": "CI/CD",
+    "aliases": [
+      "CI/CD",
+      "CICD"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 33
+  },
+  {
+    "skill_id": "aws",
+    "canonical_label": "AWS",
+    "aliases": [
+      "AWS"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 32
+  },
+  {
+    "skill_id": "azure",
+    "canonical_label": "Azure",
+    "aliases": [
+      "Azure"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 30
+  },
+  {
+    "skill_id": "react",
+    "canonical_label": "React",
+    "aliases": [
+      "React",
+      "react",
+      "React.js"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 29
+  },
+  {
+    "skill_id": "typescript",
+    "canonical_label": "TypeScript",
+    "aliases": [
+      "TypeScript",
+      "typescript"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "frontend"
+    ],
+    "occurrences": 28
+  },
+  {
+    "skill_id": "kubernetes",
+    "canonical_label": "Kubernetes",
+    "aliases": [
+      "Kubernetes"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops"
+    ],
+    "occurrences": 26
+  },
+  {
+    "skill_id": "sql",
+    "canonical_label": "SQL",
+    "aliases": [
+      "SQL"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 25
+  },
+  {
+    "skill_id": "distributed_systems",
+    "canonical_label": "Distributed Systems",
+    "aliases": [
+      "Distributed systems",
+      "Distributed Systems",
+      "distributed systems"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "technical_product"
+    ],
+    "occurrences": 18
+  },
+  {
+    "skill_id": "java",
+    "canonical_label": "Java",
+    "aliases": [
+      "Java"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops"
+    ],
+    "occurrences": 17
+  },
+  {
+    "skill_id": "observability",
+    "canonical_label": "Observability",
+    "aliases": [
+      "Observability",
+      "observability"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 16
+  },
+  {
+    "skill_id": "go",
+    "canonical_label": "Go",
+    "aliases": [
+      "Go",
+      "Golang"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 15
+  },
+  {
+    "skill_id": "javascript",
+    "canonical_label": "JavaScript",
+    "aliases": [
+      "JavaScript"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "frontend"
+    ],
+    "occurrences": 15
+  },
+  {
+    "skill_id": "agile",
+    "canonical_label": "Agile",
+    "aliases": [
+      "Agile",
+      "agile"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 14
+  },
+  {
+    "skill_id": "docker",
+    "canonical_label": "Docker",
+    "aliases": [
+      "Docker"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 14
+  },
+  {
+    "skill_id": "gcp",
+    "canonical_label": "GCP",
+    "aliases": [
+      "GCP"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 13
+  },
+  {
+    "skill_id": "machine_learning",
+    "canonical_label": "Machine Learning",
+    "aliases": [
+      "AI/ML",
+      "Machine Learning",
+      "machine learning"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 13
+  },
+  {
+    "skill_id": "kafka",
+    "canonical_label": "Kafka",
+    "aliases": [
+      "Kafka"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops"
+    ],
+    "occurrences": 12
+  },
+  {
+    "skill_id": "cloud_security",
+    "canonical_label": "Cloud Security",
+    "aliases": [
+      "cloud security",
+      "Cloud Security",
+      "Cloud security"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 11
+  },
+  {
+    "skill_id": "csharp",
+    "canonical_label": "C#",
+    "aliases": [
+      "C#"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 11
+  },
+  {
+    "skill_id": "automation",
+    "canonical_label": "Automation",
+    "aliases": [
+      "automation",
+      "Automation"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "devops"
+    ],
+    "occurrences": 9
+  },
+  {
+    "skill_id": "linux",
+    "canonical_label": "Linux",
+    "aliases": [
+      "Linux"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 9
+  },
+  {
+    "skill_id": "monitoring",
+    "canonical_label": "Monitoring",
+    "aliases": [
+      "Monitoring",
+      "monitoring"
+    ],
+    "families": [
+      "cybersecurity",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 9
+  },
+  {
+    "skill_id": "nextjs",
+    "canonical_label": "Next.js",
+    "aliases": [
+      "Next.js"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 9
+  },
+  {
+    "skill_id": "postgresql",
+    "canonical_label": "PostgreSQL",
+    "aliases": [
+      "Postgres",
+      "PostgreSQL"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops"
+    ],
+    "occurrences": 9
+  },
+  {
+    "skill_id": "terraform",
+    "canonical_label": "Terraform",
+    "aliases": [
+      "Terraform"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 9
+  },
+  {
+    "skill_id": "incident_response",
+    "canonical_label": "incident response",
+    "aliases": [
+      "incident response",
+      "Incident Response"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 8
+  },
+  {
+    "skill_id": "nodejs",
+    "canonical_label": "Node.js",
+    "aliases": [
+      "Node.js",
+      "NodeJS"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 8
+  },
+  {
+    "skill_id": "angular",
+    "canonical_label": "Angular",
+    "aliases": [
+      "Angular"
+    ],
+    "families": [
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "ansible",
+    "canonical_label": "Ansible",
+    "aliases": [
+      "Ansible"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "databricks",
+    "canonical_label": "Databricks",
+    "aliases": [
+      "Databricks"
+    ],
+    "families": [
+      "cybersecurity",
+      "data",
+      "devops"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "devops",
+    "canonical_label": "DevOps",
+    "aliases": [
+      "DevOps"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "microservices",
+    "canonical_label": "Microservices",
+    "aliases": [
+      "microservices",
+      "Microservices"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "opentelemetry",
+    "canonical_label": "OpenTelemetry",
+    "aliases": [
+      "OpenTelemetry"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "performance_optimization",
+    "canonical_label": "performance optimization",
+    "aliases": [
+      "performance optimization",
+      "Performance Optimization",
+      "Performance optimization"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "pyspark",
+    "canonical_label": "PySpark",
+    "aliases": [
+      "PySpark"
+    ],
+    "families": [
+      "data",
+      "devops"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "spark",
+    "canonical_label": "Spark",
+    "aliases": [
+      "Spark"
+    ],
+    "families": [
+      "data",
+      "devops"
+    ],
+    "occurrences": 7
+  },
+  {
+    "skill_id": "ai_tools",
+    "canonical_label": "AI tools",
+    "aliases": [
+      "AI tools",
+      "AI Tools",
+      "ai-tools"
+    ],
+    "families": [
+      "cybersecurity",
+      "data",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "api_design",
+    "canonical_label": "API Design",
+    "aliases": [
+      "API design",
+      "API Design"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "bash",
+    "canonical_label": "Bash",
+    "aliases": [
+      "Bash"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "css",
+    "canonical_label": "CSS",
+    "aliases": [
+      "CSS"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "data_engineering",
+    "canonical_label": "Data Engineering",
+    "aliases": [
+      "Data Engineering",
+      "data engineering"
+    ],
+    "families": [
+      "data",
+      "devops"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "github_actions",
+    "canonical_label": "GitHub Actions",
+    "aliases": [
+      "GitHub Actions"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "html",
+    "canonical_label": "HTML",
+    "aliases": [
+      "HTML"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "nlp",
+    "canonical_label": "NLP",
+    "aliases": [
+      "NLP"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "pytorch",
+    "canonical_label": "PyTorch",
+    "aliases": [
+      "PyTorch"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "rest",
+    "canonical_label": "REST",
+    "aliases": [
+      "REST",
+      "REST API",
+      "RESTful APIs"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "tensorflow",
+    "canonical_label": "TensorFlow",
+    "aliases": [
+      "TensorFlow"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "testing",
+    "canonical_label": "testing",
+    "aliases": [
+      "testing",
+      "Testing"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 6
+  },
+  {
+    "skill_id": "apis",
+    "canonical_label": "APIs",
+    "aliases": [
+      "APIs"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "ci_cd_pipelines",
+    "canonical_label": "CI/CD pipelines",
+    "aliases": [
+      "CI/CD pipelines"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "cloud_native",
+    "canonical_label": "Cloud Native",
+    "aliases": [
+      "Cloud Native",
+      "cloud‑native",
+      "Cloud‑Native"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "data_pipelines",
+    "canonical_label": "data pipelines",
+    "aliases": [
+      "Data Pipelines",
+      "Data pipelines",
+      "data pipelines"
+    ],
+    "families": [
+      "data",
+      "devops"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "dotnet",
+    "canonical_label": ".NET",
+    "aliases": [
+      ".NET"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "experimentation",
+    "canonical_label": "experimentation",
+    "aliases": [
+      "Experimentation",
+      "experimentation"
+    ],
+    "families": [
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "grafana",
+    "canonical_label": "Grafana",
+    "aliases": [
+      "Grafana"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "jest",
+    "canonical_label": "Jest",
+    "aliases": [
+      "Jest"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "jira",
+    "canonical_label": "Jira",
+    "aliases": [
+      "Jira"
+    ],
+    "families": [
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "llms",
+    "canonical_label": "LLMs",
+    "aliases": [
+      "LLMs"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "data",
+      "frontend"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "mlops",
+    "canonical_label": "MLOps",
+    "aliases": [
+      "MLOps"
+    ],
+    "families": [
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "mysql",
+    "canonical_label": "MySQL",
+    "aliases": [
+      "MySQL"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "optimization",
+    "canonical_label": "optimization",
+    "aliases": [
+      "optimization",
+      "Optimization"
+    ],
+    "families": [
+      "cybersecurity",
+      "data"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "powershell",
+    "canonical_label": "PowerShell",
+    "aliases": [
+      "PowerShell"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "product_management",
+    "canonical_label": "Product Management",
+    "aliases": [
+      "product management",
+      "Product Management"
+    ],
+    "families": [
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "prometheus",
+    "canonical_label": "Prometheus",
+    "aliases": [
+      "Prometheus"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "scala",
+    "canonical_label": "Scala",
+    "aliases": [
+      "Scala"
+    ],
+    "families": [
+      "backend",
+      "data"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "snowflake",
+    "canonical_label": "Snowflake",
+    "aliases": [
+      "Snowflake"
+    ],
+    "families": [
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "splunk",
+    "canonical_label": "Splunk",
+    "aliases": [
+      "Splunk"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "sre",
+    "canonical_label": "SRE",
+    "aliases": [
+      "SRE"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "threat_modeling",
+    "canonical_label": "threat modeling",
+    "aliases": [
+      "Threat Modeling",
+      "threat modeling",
+      "Threat modeling"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 5
+  },
+  {
+    "skill_id": "a_b_testing",
+    "canonical_label": "A/B testing",
+    "aliases": [
+      "A/B testing"
+    ],
+    "families": [
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "ai_agents",
+    "canonical_label": "AI Agents",
+    "aliases": [
+      "AI Agents",
+      "AI agents"
+    ],
+    "families": [
+      "backend",
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "code_review",
+    "canonical_label": "code review",
+    "aliases": [
+      "code review",
+      "Code Review",
+      "Code review"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "confluence",
+    "canonical_label": "Confluence",
+    "aliases": [
+      "Confluence"
+    ],
+    "families": [
+      "devops",
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "data_analysis",
+    "canonical_label": "Data analysis",
+    "aliases": [
+      "Data Analysis",
+      "Data analysis",
+      "data analysis"
+    ],
+    "families": [
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "data_driven_decision_making",
+    "canonical_label": "data‑driven decision making",
+    "aliases": [
+      "data‑driven decision making",
+      "Data‑driven decision making"
+    ],
+    "families": [
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "datadog",
+    "canonical_label": "DataDog",
+    "aliases": [
+      "Datadog",
+      "DataDog"
+    ],
+    "families": [
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "dbt",
+    "canonical_label": "dbt",
+    "aliases": [
+      "dbt",
+      "DBT"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "deep_learning",
+    "canonical_label": "Deep Learning",
+    "aliases": [
+      "deep learning",
+      "Deep Learning"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "digital_forensics",
+    "canonical_label": "Digital Forensics",
+    "aliases": [
+      "Digital Forensics",
+      "digital forensics",
+      "Digital forensics"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "disaster_recovery",
+    "canonical_label": "disaster recovery",
+    "aliases": [
+      "Disaster recovery",
+      "Disaster Recovery",
+      "disaster recovery"
+    ],
+    "families": [
+      "data",
+      "devops"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "feature_engineering",
+    "canonical_label": "feature engineering",
+    "aliases": [
+      "feature engineering",
+      "Feature engineering",
+      "Feature Engineering"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "generative_ai",
+    "canonical_label": "Generative AI",
+    "aliases": [
+      "generative AI",
+      "Generative AI"
+    ],
+    "families": [
+      "cybersecurity",
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "git",
+    "canonical_label": "Git",
+    "aliases": [
+      "Git"
+    ],
+    "families": [
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "github",
+    "canonical_label": "GitHub",
+    "aliases": [
+      "GitHub"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "high_availability",
+    "canonical_label": "high availability",
+    "aliases": [
+      "high availability",
+      "High‑Availability",
+      "high‑availability"
+    ],
+    "families": [
+      "backend",
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "html_css",
+    "canonical_label": "HTML/CSS",
+    "aliases": [
+      "HTML/CSS"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "iam",
+    "canonical_label": "IAM",
+    "aliases": [
+      "IAM"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "llm",
+    "canonical_label": "LLM",
+    "aliases": [
+      "LLM"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "model_deployment",
+    "canonical_label": "Model deployment",
+    "aliases": [
+      "Model Deployment",
+      "Model deployment",
+      "model deployment"
+    ],
+    "families": [
+      "backend",
+      "data"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "oracle",
+    "canonical_label": "Oracle",
+    "aliases": [
+      "Oracle"
+    ],
+    "families": [
+      "data",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "rabbitmq",
+    "canonical_label": "RabbitMQ",
+    "aliases": [
+      "RabbitMQ"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "rag",
+    "canonical_label": "RAG",
+    "aliases": [
+      "RAG"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "react_native",
+    "canonical_label": "React Native",
+    "aliases": [
+      "React Native"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "redis",
+    "canonical_label": "Redis",
+    "aliases": [
+      "Redis"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "regulatory_compliance",
+    "canonical_label": "regulatory compliance",
+    "aliases": [
+      "Regulatory compliance",
+      "regulatory compliance"
+    ],
+    "families": [
+      "cybersecurity",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "responsive_design",
+    "canonical_label": "responsive design",
+    "aliases": [
+      "Responsive Design",
+      "responsive design"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "rest_apis",
+    "canonical_label": "REST APIs",
+    "aliases": [
+      "REST APIs"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "risk_assessment",
+    "canonical_label": "Risk Assessment",
+    "aliases": [
+      "Risk assessment",
+      "risk assessment",
+      "Risk Assessment"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "risk_management",
+    "canonical_label": "Risk Management",
+    "aliases": [
+      "Risk Management"
+    ],
+    "families": [
+      "cybersecurity",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "roadmap_planning",
+    "canonical_label": "roadmap planning",
+    "aliases": [
+      "Roadmap planning",
+      "roadmap planning",
+      "Roadmap Planning"
+    ],
+    "families": [
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "scalability",
+    "canonical_label": "Scalability",
+    "aliases": [
+      "Scalability",
+      "scalability"
+    ],
+    "families": [
+      "backend",
+      "technical_product"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "statistical_analysis",
+    "canonical_label": "Statistical Analysis",
+    "aliases": [
+      "Statistical Analysis",
+      "Statistical analysis",
+      "statistical analysis"
+    ],
+    "families": [
+      "data",
+      "devops"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "vulnerability_management",
+    "canonical_label": "Vulnerability Management",
+    "aliases": [
+      "Vulnerability Management",
+      "vulnerability management"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 4
+  },
+  {
+    "skill_id": "agentic_workflows",
+    "canonical_label": "agentic workflows",
+    "aliases": [
+      "agentic workflows",
+      "Agentic workflows"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "agile_delivery",
+    "canonical_label": "agile delivery",
+    "aliases": [
+      "Agile delivery",
+      "agile delivery"
+    ],
+    "families": [
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "ai_coding_tools",
+    "canonical_label": "AI coding tools",
+    "aliases": [
+      "AI coding tools",
+      "AI Coding Tools"
+    ],
+    "families": [
+      "backend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "airflow",
+    "canonical_label": "Airflow",
+    "aliases": [
+      "Airflow"
+    ],
+    "families": [
+      "cybersecurity",
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "api_integration",
+    "canonical_label": "API integration",
+    "aliases": [
+      "API Integration",
+      "API integration"
+    ],
+    "families": [
+      "backend",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "argocd",
+    "canonical_label": "ArgoCD",
+    "aliases": [
+      "ArgoCD"
+    ],
+    "families": [
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "ci_cd_workflows",
+    "canonical_label": "CI/CD workflows",
+    "aliases": [
+      "CI/CD workflows"
+    ],
+    "families": [
+      "data",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "cloud_platforms",
+    "canonical_label": "Cloud Platforms",
+    "aliases": [
+      "Cloud Platforms",
+      "cloud platforms"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "computer_vision",
+    "canonical_label": "Computer Vision",
+    "aliases": [
+      "computer vision",
+      "Computer Vision"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "copilot",
+    "canonical_label": "Copilot",
+    "aliases": [
+      "Copilot"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "cpp",
+    "canonical_label": "C++",
+    "aliases": [
+      "C++"
+    ],
+    "families": [
+      "backend",
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "cross_functional_leadership",
+    "canonical_label": "Cross‑functional leadership",
+    "aliases": [
+      "Cross-functional Leadership",
+      "Cross‑functional leadership"
+    ],
+    "families": [
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "csharp_net",
+    "canonical_label": "C# .NET",
+    "aliases": [
+      "C# .NET",
+      "C#/.NET"
+    ],
+    "families": [
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "dast",
+    "canonical_label": "DAST",
+    "aliases": [
+      "DAST"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "data_quality",
+    "canonical_label": "Data Quality",
+    "aliases": [
+      "Data Quality"
+    ],
+    "families": [
+      "devops",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "devsecops",
+    "canonical_label": "DevSecOps",
+    "aliases": [
+      "DevSecOps"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "endpoint_security",
+    "canonical_label": "Endpoint Security",
+    "aliases": [
+      "endpoint security",
+      "Endpoint Security"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "experimental_design",
+    "canonical_label": "experimental design",
+    "aliases": [
+      "Experimental Design",
+      "experimental design"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "genai",
+    "canonical_label": "GenAI",
+    "aliases": [
+      "GenAI"
+    ],
+    "families": [
+      "backend",
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "iast",
+    "canonical_label": "IAST",
+    "aliases": [
+      "IAST"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "infrastructure_as_code",
+    "canonical_label": "infrastructure as code",
+    "aliases": [
+      "Infrastructure as Code",
+      "infrastructure as code",
+      "infrastructure‑as‑code"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "integration_tests",
+    "canonical_label": "integration tests",
+    "aliases": [
+      "integration tests"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "itil",
+    "canonical_label": "ITIL",
+    "aliases": [
+      "ITIL"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "jenkins",
+    "canonical_label": "Jenkins",
+    "aliases": [
+      "Jenkins"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "langchain",
+    "canonical_label": "LangChain",
+    "aliases": [
+      "LangChain"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "logging",
+    "canonical_label": "logging",
+    "aliases": [
+      "logging"
+    ],
+    "families": [
+      "cybersecurity",
+      "data",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "mongodb",
+    "canonical_label": "MongoDB",
+    "aliases": [
+      "MongoDB"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "networking",
+    "canonical_label": "Networking",
+    "aliases": [
+      "networking",
+      "Networking"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "pandas",
+    "canonical_label": "Pandas",
+    "aliases": [
+      "Pandas",
+      "pandas"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "performance_tuning",
+    "canonical_label": "performance tuning",
+    "aliases": [
+      "performance tuning",
+      "Performance Tuning"
+    ],
+    "families": [
+      "backend",
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "predictive_models",
+    "canonical_label": "predictive models",
+    "aliases": [
+      "Predictive models",
+      "predictive models"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "product_strategy",
+    "canonical_label": "product strategy",
+    "aliases": [
+      "product strategy",
+      "Product strategy",
+      "Product Strategy"
+    ],
+    "families": [
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "program_management",
+    "canonical_label": "Program Management",
+    "aliases": [
+      "Program management",
+      "Program Management"
+    ],
+    "families": [
+      "cybersecurity",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "project_management",
+    "canonical_label": "Project management",
+    "aliases": [
+      "project management",
+      "Project management",
+      "Project Management"
+    ],
+    "families": [
+      "data",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "responsible_ai",
+    "canonical_label": "Responsible AI",
+    "aliases": [
+      "Responsible AI",
+      "responsible AI"
+    ],
+    "families": [
+      "frontend",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "root_cause_analysis",
+    "canonical_label": "root‑cause analysis",
+    "aliases": [
+      "Root Cause Analysis",
+      "root‑cause analysis"
+    ],
+    "families": [
+      "devops",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "ruby",
+    "canonical_label": "Ruby",
+    "aliases": [
+      "Ruby",
+      "ruby"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity",
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "ruby_on_rails",
+    "canonical_label": "Ruby on Rails",
+    "aliases": [
+      "Ruby on Rails"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "sast",
+    "canonical_label": "SAST",
+    "aliases": [
+      "SAST"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "sca",
+    "canonical_label": "SCA",
+    "aliases": [
+      "SCA"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "scikit_learn",
+    "canonical_label": "scikit-learn",
+    "aliases": [
+      "Scikit-learn",
+      "scikit-learn"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "secure_coding",
+    "canonical_label": "Secure Coding",
+    "aliases": [
+      "Secure coding",
+      "Secure Coding",
+      "secure coding"
+    ],
+    "families": [
+      "backend",
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "security",
+    "canonical_label": "Security",
+    "aliases": [
+      "Security"
+    ],
+    "families": [
+      "backend",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "security_architecture",
+    "canonical_label": "Security Architecture",
+    "aliases": [
+      "security architecture",
+      "Security Architecture"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "shell",
+    "canonical_label": "Shell",
+    "aliases": [
+      "Shell"
+    ],
+    "families": [
+      "cybersecurity",
+      "devops"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "statistical_modeling",
+    "canonical_label": "statistical modeling",
+    "aliases": [
+      "Statistical Modeling",
+      "statistical modeling"
+    ],
+    "families": [
+      "data"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "system_design",
+    "canonical_label": "System Design",
+    "aliases": [
+      "system design",
+      "System Design"
+    ],
+    "families": [
+      "backend",
+      "devops",
+      "technical_product"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "threat_intelligence",
+    "canonical_label": "Threat Intelligence",
+    "aliases": [
+      "Threat Intelligence"
+    ],
+    "families": [
+      "cybersecurity"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "unit_tests",
+    "canonical_label": "unit tests",
+    "aliases": [
+      "unit tests"
+    ],
+    "families": [
+      "frontend"
+    ],
+    "occurrences": 3
+  },
+  {
+    "skill_id": "workflow_orchestration",
+    "canonical_label": "Workflow orchestration",
+    "aliases": [
+      "workflow orchestration",
+      "Workflow orchestration",
+      "Workflow Orchestration"
+    ],
+    "families": [
+      "cybersecurity",
+      "technical_product"
+    ],
+    "occurrences": 3
+  }
+]

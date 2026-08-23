@@ -1,0 +1,842 @@
+{
+  "nextgig-463daf47db7b": {
+    "family_hint": "backend",
+    "skills_required": "[\"Distributed Systems\", \"Microservices\", \"Cloud Native\", \"Azure\", \"GCP\", \"WCNP\", \"Observability\", \"CI/CD\", \"Security\", \"Performance Engineering\", \"Scalable Architecture\", \"Mentoring\", \"Technical Leadership\", \"Stakeholder Management\", \"System Design\", \"Low‑Latency\", \"High‑Availability\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-73fe840f52fa": {
+    "family_hint": "backend",
+    "skills_required": "[\"React\", \"Node.js\", \"Java\", \"Scala\", \"RESTful APIs\", \"Kafka\", \"RabbitMQ\", \"CI/CD\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-b42afa4fb0a0": {
+    "family_hint": "backend",
+    "skills_required": "[\"technical leadership\", \"system architecture\", \"distributed systems\", \"cloud platforms\", \"mentorship\", \"performance optimization\", \"incident response\", \"hiring\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-bd2c5fe13dad": {
+    "family_hint": "backend",
+    "skills_required": "[\"Java\", \"Go\", \"Scala\", \"Kafka\", \"AWS\", \"Azure\", \"GCP\", \"Kubernetes\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-26b9fe8e3099": {
+    "family_hint": "backend",
+    "skills_required": "[\"Distributed Systems\", \"Event‑Driven Architecture\", \"Python asyncio\", \"Go goroutines\", \"DynamoDB\", \"Redis\", \"OpenTelemetry\", \"Kafka\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-d4a0fb91d1cb": {
+    "family_hint": "backend",
+    "skills_required": "[\"Java\", \"AWS DynamoDB\", \"AWS EBS\", \"AWS EFS\", \"AWS FSx\", \"AWS Glacier\", \"Terraform\", \"CloudFormation\", \"OpenTelemetry\", \"Prometheus\", \"Kubernetes\", \"Docker\", \"CI/CD\", \"Observability\", \"Distributed Systems\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-e8799a7cadf6": {
+    "family_hint": "backend",
+    "skills_required": "[\"Python\", \"Postgres\", \"Async systems\", \"API integration\", \"OAuth\", \"LLM\", \"React\", \"TypeScript\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-5e0b4781c9ea": {
+    "family_hint": "backend",
+    "skills_required": "[\"AWS\", \"Microservices\", \"API Design\", \"AI Agents\", \"LLM Orchestration\", \"CI/CD\", \"Async Messaging\", \"Secure Auth\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-0a26f2ff3c8d": {
+    "family_hint": "backend",
+    "skills_required": "[\"Python\", \"C#\", \"TypeScript\", \"React\", \"Azure\", \"SQL\", \"Quantitative Modeling\", \"CI/CD\"]",
+    "work_model": "Remote",
+    "employment_type": "Contract",
+    "experience_level": null
+  },
+  "nextgig-c83a60084f38": {
+    "family_hint": "backend",
+    "skills_required": "[\"Machine Learning\", \"Natural Language Processing\", \"Large-Scale Systems\", \"Distributed Computing\", \"Python\", \"C++\", \"Software Engineering\", \"Data Structures\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-50613d2f6f72": {
+    "family_hint": "backend",
+    "skills_required": "[\"Python\", \"PLC\", \"EtherCAT\", \"Test Automation\", \"Real‑time Control\", \"Electrical Design\", \"Embedded Firmware\", \"Data Acquisition\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-e9ca6101f65d": {
+    "family_hint": "backend",
+    "skills_required": "[\"Ruby\", \"Rails\", \"React\", \"JavaScript\", \"PostgreSQL\", \"AWS\", \"Docker\", \"Agile\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-a0d012e16f14": {
+    "family_hint": "backend",
+    "skills_required": "[\"Distributed Systems\", \"Real‑Time Processing\", \"Cloud‑Native\", \"AI Coding Tools\", \"Performance Tuning\", \"Observability\", \"Secure Coding\", \"Mentorship\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-88e72d616be9": {
+    "family_hint": "backend",
+    "skills_required": "[\".NET\", \"C#\", \"ASP.NET\", \"Entity Framework\", \"SQL\", \"Azure\", \"REST APIs\", \"CI/CD\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-338c1ee16e7b": {
+    "family_hint": "backend",
+    "skills_required": "[\"full-stack\", \"AI coding tools\", \"Go\", \"TypeScript\", \"C#\", \"architecture\", \"CI/CD\", \"mentoring\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-f2be8dba504a": {
+    "family_hint": "backend",
+    "skills_required": "[\"Python\", \"Rust\", \"Linux\", \"Kubernetes\", \"Observability\", \"Automation\", \"SRE\", \"Distributed Systems\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-2b1d35e3443b": {
+    "family_hint": "backend",
+    "skills_required": "[\"Go\", \"Python\", \"Distributed Systems\", \"Cloud Security\", \"Security Controls\", \"Mentoring\", \"Software Architecture\", \"Scalability\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-1e044717f033": {
+    "family_hint": "backend",
+    "skills_required": "[\"TypeScript\", \"Node.js\", \"React\", \"Microservices\", \"Kubernetes\", \"PostgreSQL\", \"Redis\", \"Testing\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-619bf164c650": {
+    "family_hint": "backend",
+    "skills_required": "[\"Java\", \"Python\", \".NET\", \"CI/CD\", \"DevOps\", \"Cloud\", \"Kubernetes\", \"SRE\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-2f6fa45be327": {
+    "family_hint": "backend",
+    "skills_required": "[\"Leadership\", \"Autonomous Agents\", \"CI/CD Integration\", \"OpenTelemetry\", \"Open Application Model\", \"Scalability\", \"Performance Optimization\", \"Cloud Build\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-63768a57c5a0": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React\", \"TypeScript\", \"Next.js\", \"Tailwind\", \"GraphQL\", \"Node.js\", \"AI Tools\", \"Testing\"]",
+    "work_model": "Remote",
+    "employment_type": "Contract",
+    "experience_level": null
+  },
+  "nextgig-0e5e12a56f03": {
+    "family_hint": "frontend",
+    "skills_required": "[\".NET\", \"Angular\", \"Azure\", \"AKS\", \"Microservices\", \"CI/CD\", \"AI/ML\", \"Docker\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-384bc1356d87": {
+    "family_hint": "frontend",
+    "skills_required": "[\"C#\", \"TypeScript\", \"AngularJS\", \"HTML/CSS\", \"NodeJS\", \"Agile\", \"CI/CD\", \"Code Review\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-3875c08658cd": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React.js\", \"JavaScript\", \"TypeScript\", \"HTML\", \"CSS\", \"Agile\", \"Jest\", \"Webpack\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-076fb85379b4": {
+    "family_hint": "frontend",
+    "skills_required": "[\".NET Core\", \"React\", \"React Native\", \"AWS\", \"Azure\", \"CI/CD\", \"Agile\", \"Integration\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-8f8ca07a3411": {
+    "family_hint": "frontend",
+    "skills_required": "[\"ruby\", \"rails\", \"react\", \"typescript\", \"growth\", \"experimentation\", \"ai-tools\", \"mentorship\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-7a626854bc18": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React\", \"TypeScript\", \"Frontend architecture\", \"Performance optimization\", \"Full stack development\", \"SaaS applications\", \"Design systems\", \"AI‑assisted workflows\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-84d25d7ad50e": {
+    "family_hint": "frontend",
+    "skills_required": "[\"Next.js\", \"TypeScript\", \"AWS\", \"Docker\", \"Redis\", \"Cloudflare\", \"DataDog\", \"Playwright\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-6be821a1f413": {
+    "family_hint": "frontend",
+    "skills_required": "[\"LLM development\", \"Agentic workflows\", \"TypeScript\", \"React\", \"API design\", \"Security by design\", \"Responsible AI\", \"AI coding assistants\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-003ae1153d0f": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React Native\", \"Expo\", \"JavaScript\", \"TypeScript\", \"Mobile Architecture\", \"CI/CD\", \"Mentorship\", \"AI Tooling\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-d17f88214d42": {
+    "family_hint": "frontend",
+    "skills_required": "",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-c3aeedf14904": {
+    "family_hint": "frontend",
+    "skills_required": "[\"C# .NET\", \"React\", \"Next.js\", \"GCP\", \"Azure\", \"Agile\", \"DevOps\", \"TDD\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-a68e2da7409d": {
+    "family_hint": "frontend",
+    "skills_required": "[\".NET C#\", \"MySQL\", \"REST API\", \"Angular\", \"Azure\", \"MES\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Entry"
+  },
+  "nextgig-2b19209b36f2": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React\", \"TypeScript\", \"Clojure\", \"Data‑Heavy UI\", \"API Integration\", \"Performance Optimization\", \"Observability\", \"Testing\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-2db45d0033bd": {
+    "family_hint": "frontend",
+    "skills_required": "[\"C#\", \"Angular\", \"TypeScript\", \"Azure\", \"DevOps\", \"Agile\", \"REST APIs\", \"IIS\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-694a7670daaf": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React\", \"Next.js\", \"Web Components\", \"WCAG\", \"Responsive Design\", \"Storybook\", \"TypeScript\", \"Git\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-a59d15552752": {
+    "family_hint": "frontend",
+    "skills_required": "[\"full-stack\", \"Ruby on Rails\", \"JavaScript\", \"HTML/CSS\", \"C#\", \"Linux\", \"cloud architecture\", \"integration\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-46d91b935854": {
+    "family_hint": "frontend",
+    "skills_required": "[\"C#\", \"Angular\", \"MongoDB\", \"Azure DevOps\", \"REST APIs\", \"SignalR\", \"RabbitMQ\", \"Solr\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-32eb5cff6239": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React\", \"TypeScript\", \"Next.js\", \"UI Architecture\", \"Component Libraries\", \"Responsive Design\", \"CI/CD\", \"Mentorship\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-8876016430d3": {
+    "family_hint": "frontend",
+    "skills_required": "[\"React\", \"Next.js\", \"JavaScript\", \"HTML\", \"CSS\", \"Jest\", \"CI/CD\", \"Figma\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-239bda7c0a8d": {
+    "family_hint": "data",
+    "skills_required": "[\"Python\", \"SQL\", \"Spark\", \"Databricks\", \"MLflow\", \"Tableau\", \"NLP\", \"MLOps\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-3ac417ad8950": {
+    "family_hint": "data",
+    "skills_required": "[\"Distributed Systems\", \"Data Streaming\", \"Python\", \"Cloud Native\", \"Kubernetes\", \"Observability\", \"Feature Stores\", \"Real-time ML\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-a938a357328c": {
+    "family_hint": "data",
+    "skills_required": "[\"Machine Learning\", \"Deep Learning\", \"Computer Vision\", \"Signal Processing\", \"Data Engineering\", \"Python\", \"TensorFlow\", \"PyTorch\", \"CUDA\", \"Agile\", \"DevOps\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-73f9cb4e6556": {
+    "family_hint": "data",
+    "skills_required": "[\"Python\", \"Machine Learning\", \"AI Agents\", \"Spectroscopy\", \"Data Pipelines\", \"Statistical Analysis\", \"PyTorch\", \"TensorFlow\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-4f8e8f22c765": {
+    "family_hint": "data",
+    "skills_required": "[\"Databricks\", \"dbt\", \"Snowflake\", \"BigQuery\", \"Data Lake\", \"Pipeline Orchestration\", \"AI Tools\", \"ML Workloads\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-64759ca153b8": {
+    "family_hint": "data",
+    "skills_required": "[\"Optimization\", \"Simulation\", \"Machine Learning\", \"Python\", \"Azure\", \"Fabric\", \"Agentic AI\", \"Operations Research\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-c742414fca8e": {
+    "family_hint": "data",
+    "skills_required": "[\"Python\", \"JavaScript\", \"TypeScript\", \"OpenAI\", \"LangChain\", \"LlamaIndex\", \"AutoGen\", \"CrewAI\", \"RAG\", \"Docker\", \"AWS\", \"GCP\", \"Azure\", \"Vector Databases\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-668b323ac1a9": {
+    "family_hint": "data",
+    "skills_required": "",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-0ed423b8edb1": {
+    "family_hint": "data",
+    "skills_required": "[\"Python\", \"SQL\", \"MMM\", \"Incrementality testing\", \"Geo‑lift experiments\", \"AWS\", \"Snowflake\", \"Data visualization\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-820ee1edfb6d": {
+    "family_hint": "data",
+    "skills_required": "[\"AI agents\", \"Machine vision\", \"Data pipelines\", \"Experiment design\", \"Model deployment\", \"Observability\", \"Stakeholder communication\", \"Production engineering\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-ee5def876a18": {
+    "family_hint": "data",
+    "skills_required": "[\"Snowflake\", \"SQL\", \"DBT\", \"Python\", \"ELT\", \"Power BI\", \"Streamlit\", \"CI/CD\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-1bc1f20f839f": {
+    "family_hint": "data",
+    "skills_required": "[\"Python\", \"Machine Learning\", \"NLP\", \"LLM\", \"MLOps\", \"Cloud\", \"Fraud Detection\", \"Forecasting\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-982916fa3c88": {
+    "family_hint": "data",
+    "skills_required": "[\"Machine Learning\", \"Deep Learning\", \"Statistical Analysis\", \"SQL\", \"Python\", \"Data Mining\", \"Predictive Modeling\", \"Data Engineering\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-e90fd7cfd527": {
+    "family_hint": "data",
+    "skills_required": "[\"Machine Learning\", \"Statistical Modeling\", \"Experimental Design\", \"Python\", \"PySpark\", \"TensorFlow\", \"PyTorch\", \"SQL\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-5d0628237994": {
+    "family_hint": "data",
+    "skills_required": "[\"Credit Risk Modeling\", \"Python\", \"SQL\", \"Model Deployment\", \"Feature Engineering\", \"Explainable AI\", \"Portfolio Analysis\", \"Data Engineering\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-d674da794f0e": {
+    "family_hint": "data",
+    "skills_required": "[\"Python\", \"SQL\", \"Spark\", \"Kafka\", \"Airflow\", \"DeepLearning\", \"NLP\", \"ComputerVision\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-de31b1ef01f7": {
+    "family_hint": "data",
+    "skills_required": "[\"Molecular biology\", \"Histology\", \"Behavioral neuroscience\", \"Electrochemistry\", \"Rodent surgery\", \"Data analysis\", \"Scientific documentation\", \"Project management\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-a93d8fe02676": {
+    "family_hint": "data",
+    "skills_required": "[\"database design\", \"performance tuning\", \"backup recovery\", \"SQL scripting\", \"Python automation\", \"geospatial data\", \"ArcGIS Enterprise\", \"security compliance\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-5c7b6999fe4f": {
+    "family_hint": "data",
+    "skills_required": "[\"data analysis\", \"policy analysis\", \"Stata\", \"R\", \"PowerBI\", \"dashboard development\", \"statistical modeling\", \"project management\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-cf1d5b9d61aa": {
+    "family_hint": "data",
+    "skills_required": "[\"Machine Learning\", \"AI\", \"MLOps\", \"Computer Vision\", \"NLP\", \"Data Engineering\", \"Cloud\", \"Edge\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-e513fe8a297f": {
+    "family_hint": "devops",
+    "skills_required": "[\"Kafka\", \"Confluent\", \"Kafka Streams\", \"ksqlDB\", \"Kafka Connect\", \"Terraform\", \"Ansible\", \"Prometheus\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-f5dcdf5a1d0b": {
+    "family_hint": "devops",
+    "skills_required": "[\"Data Engineering\", \"Python\", \"Spark\", \"Ray\", \"Beam\", \"Distributed Systems\", \"Dataset Versioning\", \"CI/CD\", \"Data Quality\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-a8a38eb7ebf9": {
+    "family_hint": "devops",
+    "skills_required": "[\"Go\", \"Python\", \"Linux\", \"Kubernetes\", \"Ansible\", \"CI/CD\", \"Monitoring\", \"Cloud\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-ca9da5eaf2fd": {
+    "family_hint": "devops",
+    "skills_required": "[\"Reliability engineering\", \"Non‑volatile memory\", \"Statistical analysis\", \"Risk assessment\", \"Accelerated testing\", \"Failure analysis\", \"Process integration\", \"Cross‑functional collaboration\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-bbaabbeb2864": {
+    "family_hint": "devops",
+    "skills_required": "[\"AWS\", \"Hybrid Cloud\", \"Infrastructure Automation\", \"CI/CD\", \"Terraform\", \"Azure\", \"MuleSoft\", \"RMF\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-8a9fdfd1941d": {
+    "family_hint": "devops",
+    "skills_required": "[\"CICD\", \"Build Automation\", \"Test Orchestration\", \"Artifact Management\", \"Deployment Workflows\", \"Cloud Platforms\", \"Distributed Systems\", \"Embedded Software\", \"Python\", \"Bash\", \"PowerShell\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-bfa771f7aa5e": {
+    "family_hint": "devops",
+    "skills_required": "[\"Java\", \"Python\", \"AWS\", \"Docker\", \"Kubernetes\", \"CI/CD\", \"API design\", \"Security\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-79fe3582e52c": {
+    "family_hint": "devops",
+    "skills_required": "[\"System Design\", \"API Design\", \"Distributed Systems\", \"Security Architecture\", \"Cloud Platforms\", \"Containerization\", \"Observability\", \"Reliability Engineering\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-ce87acfca942": {
+    "family_hint": "devops",
+    "skills_required": "[\"Monitoring\", \"Incident Management\", \"Automation\", \"Scripting\", \"Cloud\", \"Containerization\", \"Database\", \"Configuration Management\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-a73603de34d7": {
+    "family_hint": "devops",
+    "skills_required": "",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-a2881c956fcd": {
+    "family_hint": "devops",
+    "skills_required": "[\"Full‑stack development\", \"AWS cloud\", \"Kubernetes orchestration\", \"AI‑agent integration\", \"Financial data systems\", \"CI/CD pipelines\", \"Data modeling\", \"API design\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-1afc5ff2e415": {
+    "family_hint": "devops",
+    "skills_required": "[\"Terraform\", \"Kubernetes\", \"Azure\", \"GitHub Actions\", \"ArgoCD\", \"Python\", \"Bash\", \"CI/CD\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-27becf7ca5dd": {
+    "family_hint": "devops",
+    "skills_required": "[\"DevOps\", \"CI/CD\", \"Cloud\", \"AWS\", \"Docker\", \"Kubernetes\", \"React\", \"SpringBoot\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-2a89ca271e89": {
+    "family_hint": "devops",
+    "skills_required": "[\"SRE\", \"Identity Management\", \"PowerShell\", \"Azure AD\", \"Intune\", \"Zero Trust\", \"Automation\", \"Monitoring\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-5c21ee94626a": {
+    "family_hint": "devops",
+    "skills_required": "[\"SRE\", \"ERP\", \"EDI\", \"Java\", \"Python\", \"Kubernetes\", \"MySQL\", \"Sybase\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-e94795598f03": {
+    "family_hint": "devops",
+    "skills_required": "[\"Python\", \"PySpark\", \"Databricks\", \"Kubernetes\", \"Kafka\", \"AI/GenAI\", \"Microservices\", \"Regulatory Reporting\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-4885ade8cf15": {
+    "family_hint": "devops",
+    "skills_required": "[\"Azure\", \"Infrastructure\", \"Cloud\", \"Networking\", \"Security\", \"Monitoring\", \"Disaster Recovery\", \"Migration\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Contract",
+    "experience_level": "Senior"
+  },
+  "nextgig-a5f0653de679": {
+    "family_hint": "devops",
+    "skills_required": "[\"AWS\", \"Kubernetes\", \"Terraform\", \"Ansible\", \"Docker\", \"CI/CD\", \"Monitoring\", \"Linux\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-5606f2b9d3e9": {
+    "family_hint": "devops",
+    "skills_required": "[\"PySpark\", \"Palantir Foundry\", \"Python\", \"Data Quality\", \"CI/CD\", \"REST APIs\", \"Git\", \"Cloud DevOps\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-bf1828a9671e": {
+    "family_hint": "devops",
+    "skills_required": "[\"Observability\", \"Distributed Systems\", \"OpenTelemetry\", \"Go\", \"Python\", \"Cloud\", \"Kubernetes\", \"AI‑Assist\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-a77a741eab6d": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Exercise Design\", \"Cybersecurity Governance\", \"Threat Intelligence\", \"Scenario Development\", \"Tabletop Facilitation\", \"Simulation Coordination\", \"Program Management\", \"Stakeholder Communication\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-fc56cd694a19": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Cybersecurity\", \"RMF\", \"NIST\", \"DevSecOps\", \"Agile\", \"System Architecture\", \"Threat Assessment\", \"Security Engineering\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-1b0273c15e42": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"AI Security\", \"Cloud Security\", \"Threat Modeling\", \"Secure SDLC\", \"OWASP\", \"NIST AI RMF\", \"NIST CSF\", \"Generative AI\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-7e51db203869": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Embedded C/C++\", \"AUTOSAR\", \"Linux\", \"QNX\", \"Android\", \"CAN\", \"CAN‑FD\", \"Automotive Ethernet\", \"RTOS\", \"Secure coding\", \"MISRA\", \"Unit testing\", \"Integration testing\", \"Debugging\", \"Version control\", \"Defect tracking\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-8e5250b06335": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"security analysis\", \"bug bounty\", \"vulnerability triage\", \"offensive security\", \"scripting\", \"cloud security\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-1c29453b404d": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"IAM\", \"PAM\", \"Cloud\", \"Automation\", \"DataEngineering\", \"Python\", \"Java\", \"Airflow\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-f056a841cd83": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Security Architecture\", \"Cloud Security\", \"Endpoint Security\", \"Identity Management\", \"Vulnerability Management\", \"Automation\", \"AI Integration\", \"Risk Assessment\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-e7ea72eac39a": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Threat modeling\", \"Code review\", \"SAST\", \"DAST\", \"IAST\", \"SCA\", \"CI/CD security\", \"Authentication\", \"Authorization\", \"Cryptography\", \"Container security\", \"Kubernetes\", \"Cloud security\", \"Red-team\", \"Purple-team\", \"Runtime protection\", \"WAF\", \"RASP\", \"Bot protection\", \"Abuse detection\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-546dc3f0371f": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Cloud security\", \"AWS\", \"Azure\", \"FedRAMP\", \"IaC\", \"Kubernetes\", \"DevSecOps\", \"NIST frameworks\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-70737683d2ec": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Cloud Security\", \"IAM\", \"CI/CD\", \"Vulnerability Management\", \"GRC\", \"Python\", \"Splunk\", \"Salesforce\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-d6661b300d8d": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Threat Intelligence\", \"OSINT\", \"Dark Web Analysis\", \"Malware Analysis\", \"SIEM\", \"Threat Hunting\", \"Risk Assessment\", \"Executive Briefing\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-13c5f154ee57": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Firewall Management\", \"WAF & IPS\", \"VPN & MFA\", \"Endpoint Security\", \"Incident Response\", \"Vulnerability Management\", \"ITSM\", \"Security Auditing\"]",
+    "work_model": "Hybrid",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-90982e0f1cce": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"SAP GRC\", \"Authorization Design\", \"Segregation of Duties\", \"Fiori Security\", \"BTP Cloud Security\", \"Audit Support\", \"IDM Integration\", \"Technical Documentation\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-16505059f7f9": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Incident Response\", \"Host Intrusion Analysis\", \"Network Intrusion Analysis\", \"Malware Reverse Engineering\", \"Digital Forensics\", \"Threat Intelligence\", \"ITIL\", \"SANS\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-c420c202336b": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"secure coding\", \"threat modeling\", \"cloud security\", \"CI/CD security\", \"DevSecOps\", \"vulnerability management\", \"incident response\", \"security architecture\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-6c5005bcd3d0": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Zero Trust\", \"Identity Access Management\", \"Cloud Security\", \"Operational Technology\", \"Digital Manufacturing\", \"Infrastructure as Code\", \"Data Classification\", \"AI Platform Security\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-a07c4439cb9a": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Risk Management\", \"Security Governance\", \"Stakeholder Engagement\", \"Security Metrics\", \"Leadership\", \"Communication\", \"Problem Solving\", \"Decision Making\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-86250bb790ff": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"risk governance\", \"information security\", \"cyber risk\", \"AI risk\", \"regulatory compliance\", \"stakeholder management\", \"frameworks (COSO, NIST)\", \"audit\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-1604bbac44da": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"AI methods\", \"Model-based engineering\", \"Real-time systems\", \"Embedded systems\", \"Distributed systems\", \"Formal methods\", \"Optimization\", \"Networking\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-42abe1f8e1b4": {
+    "family_hint": "cybersecurity",
+    "skills_required": "[\"Digital Forensics\", \"Cyber Investigations\", \"Adult Learning\", \"Operational Coaching\", \"Border Patrol Tactics\", \"Incident Response\", \"Social Media Analysis\", \"International Coordination\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-223d12daa3a4": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"product strategy\", \"roadmap planning\", \"stakeholder management\", \"agile delivery\", \"fintech domain\", \"market analysis\", \"regulatory compliance\", \"data‑driven decision making\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-1e86b0afbf98": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"AI Engineering\", \"GenAI\", \"Multi-Agent Systems\", \"RAG\", \"Python\", \"MLOps\", \"Tool‑Calling\", \"Secure Architecture\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-0346c9d47962": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Systems Engineering\", \"Project Management\", \"EPC\", \"Subsea\", \"Design Reviews\", \"Budget Management\", \"Risk Management\", \"Change Control\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-ab6f3d92101f": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Microsoft 365\", \"Viva\", \"Collaboration tools\", \"Program management\", \"Portfolio management\", \"Change management\", \"Agile delivery\", \"Human‑centered design\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-ea4b31602fa9": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Product Management\", \"Product‑Led Growth\", \"AI Integration\", \"Data Analysis\", \"Agile Scrum\", \"OpenSpec\", \"Stakeholder Management\", \"Bilingual French/English\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-f50cffeb0ad4": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Data Quality\", \"SQL\", \"Python\", \"AI/ML\", \"kdb+/Q\", \"Product Roadmap\", \"Time Series\", \"Market Data\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-d830101f004e": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"ads ranking\", \"retrieval\", \"ML systems\", \"distributed systems\", \"leadership\", \"architecture\", \"experimentation\", \"scalability\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-e8a0bf9e007f": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Agile\", \"Product Management\", \"Software Development\", \"Energy Systems\", \"Battery Management\", \"Jira\", \"DevOps\", \"Communication\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-950c9ebe098b": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"A/B testing\", \"Conversion optimization\", \"Funnel analysis\", \"Product requirements\", \"Stakeholder management\", \"Data‑driven decision making\", \"Web UX\", \"Performance metrics\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": null
+  },
+  "nextgig-4171ceeadce6": {
+    "family_hint": "technical_product",
+    "skills_required": "",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-2c49a7646af5": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Program Management\", \"Cross-functional Leadership\", \"Budget Management\", \"Risk Management\", \"Technical Communication\", \"Product Development\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-951aec2a661b": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Product Management\", \"AI Platforms\", \"Clinical Trials\", \"Cross‑Functional Collaboration\", \"Technical Literacy\", \"Roadmap Planning\", \"User Discovery\", \"Metrics‑Driven Improvement\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-3448b938d0fc": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Equipment Management\", \"Procurement\", \"Vendor Management\", \"IRB Compliance\", \"Biomechanics\", \"Metabolic Analysis\", \"Project Scheduling\", \"Risk Management\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-e4e8a9462b80": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Quality Systems\", \"ISO 13485\", \"FDA 21 CFR 820\", \"IVDR\", \"QMS\", \"Lean Six Sigma\", \"Root Cause Analysis\", \"Data Analytics\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-194a994a0b25": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Product strategy\", \"Roadmap planning\", \"Data analysis\", \"Experimentation\", \"Funnel optimisation\", \"Cross‑functional leadership\", \"Stakeholder alignment\", \"Commercial acumen\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-4e094e0a37d3": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"Brand positioning\", \"Value‑based marketing\", \"Health economics\", \"Scientific storytelling\", \"Marketing collateral\", \"Digital assets\", \"Presentation skills\", \"Training delivery\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-1b805f182e83": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"AI/ML\", \"Product Strategy\", \"Data Architecture\", \"API Design\", \"Workflow Orchestration\", \"Global Rollout\", \"Stakeholder Management\", \"Technical Communication\"]",
+    "work_model": null,
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-8c91e377c0c3": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"AI product strategy\", \"ML lifecycle\", \"Data platforms\", \"Responsible AI\", \"Regulatory compliance\", \"Cloud services\", \"Cross‑functional leadership\", \"Stakeholder management\"]",
+    "work_model": "Remote",
+    "employment_type": "Full-time",
+    "experience_level": "Senior"
+  },
+  "nextgig-9ed074f02050": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"product management\", \"core banking\", \"regulatory compliance\", \"stakeholder management\", \"agile delivery\", \"cloud‑native\", \"payments\", \"multi‑jurisdiction\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": "Mid"
+  },
+  "nextgig-f955ee824107": {
+    "family_hint": "technical_product",
+    "skills_required": "[\"product management\", \"cloud networking\", \"agile\", \"stakeholder management\", \"network security\", \"roadmap planning\", \"backlog refinement\", \"team leadership\"]",
+    "work_model": "On-site",
+    "employment_type": "Full-time",
+    "experience_level": null
+  }
+}
