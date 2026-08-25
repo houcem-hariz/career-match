@@ -1,1 +1,1 @@
-"""Deterministic normalisation: referential, then the alias/fuzzy cascade (week 2)."""
+"""Deterministic normalisation: referential, then the alias/fuzzy cascade."""

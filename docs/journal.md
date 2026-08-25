@@ -70,3 +70,8 @@ Cache disque : hash du PDF + version de prompt + modele. En v2 : sortie schema-n
 Union extraction LLM (GPT-OSS 20B) + listes skills du dataset, puis fusion d'alias et denylist (soft skills).
 Les mentions rares (1-2) sont ecartees comme bruit. En v2 : alignement ESCO.
 
+## Semaine 2
+
+**2026-08-25 — Normalisation deterministe : exact, puis alias, puis fuzzy (seuil 0.88).**
+Pas de LLM en dernier recours, pas d'embeddings pour cette etape. Les mentions non resolues sont journalisees (bruit / inconnu / ambigu). Seniorite derivee des annees : <2 junior, <5 mid, <10 senior, sinon lead. Niveau manquant = WORKING. En v2 : etape embeddings dans la cascade.
+
