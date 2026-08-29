@@ -12,7 +12,7 @@ from career_match.adapters.ingestion.build_referential import (
     load_offers,
     write_referential,
 )
-from career_match.adapters.llm.groq_extractor import GroqOfferSkillExtractor
+from career_match.adapters.llm.factory import build_offer_skill_extractor
 from career_match.adapters.storage.extraction_cache import ExtractionCache
 from career_match.domain.normalization.referential import build_referential
 from career_match.settings import get_settings, project_root
@@ -37,14 +37,14 @@ def main(
     settings = get_settings()
     offers = load_offers(offers_path)
     annotations = json.loads(annotations_path.read_text(encoding="utf-8"))
-    extractor = GroqOfferSkillExtractor(settings)
+    extractor = build_offer_skill_extractor(settings)
     cache = ExtractionCache(settings.extraction_cache_dir, settings.extraction_cache_enabled)
 
     def progress(index: int, total: int, origin: str, title: str) -> None:
         typer.echo(f"[{index}/{total}] {origin}  {title[:80]}", err=True)
 
     mentions = collect_mentions(
-        offers, annotations, extractor, cache, settings.llm_chat_model, on_progress=progress
+        offers, annotations, extractor, cache, extractor.model_id, on_progress=progress
     )
     skills = build_referential(mentions, min_occurrences=3)
     write_referential(skills, output_path)

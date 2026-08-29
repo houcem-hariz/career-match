@@ -75,3 +75,14 @@ Les mentions rares (1-2) sont ecartees comme bruit. En v2 : alignement ESCO.
 **2026-08-25 — Normalisation deterministe : exact, puis alias, puis fuzzy (seuil 0.88).**
 Pas de LLM en dernier recours, pas d'embeddings pour cette etape. Les mentions non resolues sont journalisees (bruit / inconnu / ambigu). Seniorite derivee des annees : <2 junior, <5 mid, <10 senior, sinon lead. Niveau manquant = WORKING. En v2 : etape embeddings dans la cascade.
 
+**2026-08-25 — Embeddings : OpenAI text-embedding-3-small (1536 dimensions).**
+Groq ne fournit pas d'embeddings. OpenAI small suffit pour 120 offres (quelques centimes, indexation unique). Alternative locale (BGE / Ollama) conservee comme v2 si le corpus grossit. Changer de modele impose de re-indexer pgvector.
+
+**2026-08-25 — Index offres : Postgres + pgvector en local (Docker, port 5433).**
+Texte embedde = titre + description. Cache disque des vecteurs (modele + version de texte). Famille et lieu viennent des annotations, pas d'une extraction LLM. En v2 : extraction structuree des offres pour le scoring.
+
+**2026-08-25 — Recherche hybride : filtres deterministes puis cosine pgvector.**
+Famille / lieu / mode de travail eliminent avant le ranking semantique. Lieu ignore si willing_to_relocate. Offre sans work_model non eliminee (donnee manquante). Le scoring 6 dimensions reste semaine 3.
+
+**2026-08-29 — Couche agnostique : Groq et OpenAI derriere la meme fabrique.**
+LLM_PROVIDER=groq | openai. Meme prompt, meme RawProfile. Defaut Groq (GPT-OSS 20B). OpenAI chat = gpt-4o-mini, embeddings inchanges. Les CLI n'instancient plus Groq en dur. Anthropic non branche.

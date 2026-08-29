@@ -8,7 +8,7 @@ from pathlib import Path
 import typer
 
 from career_match.adapters.extraction.service import extract_cv
-from career_match.adapters.llm.groq_extractor import GroqProfileExtractor
+from career_match.adapters.llm.factory import build_profile_extractor
 from career_match.adapters.storage.extraction_cache import ExtractionCache
 from career_match.adapters.storage.referential_io import load_referential_index
 from career_match.domain.models.profile import RawProfile
@@ -40,9 +40,9 @@ def main(
 def _load_raw(source: Path) -> tuple[RawProfile, str | None]:
     if source.suffix.lower() == ".pdf":
         settings = get_settings()
-        extractor = GroqProfileExtractor(settings)
+        extractor = build_profile_extractor(settings)
         cache = ExtractionCache(settings.extraction_cache_dir, settings.extraction_cache_enabled)
-        raw, _from_cache = extract_cv(source, extractor, cache, settings.llm_chat_model)
+        raw, _from_cache = extract_cv(source, extractor, cache, extractor.model_id)
         digest = hashlib.sha256(source.read_bytes()).hexdigest()
         return raw, digest
     return RawProfile.model_validate_json(source.read_text(encoding="utf-8")), None

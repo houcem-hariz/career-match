@@ -1,1 +1,1 @@
-"""Persistence adapters: extraction cache now, Postgres later."""
+"""Persistence adapters: extraction cache, embedding cache, and pgvector."""

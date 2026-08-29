@@ -31,9 +31,12 @@ réseau. Un test d'architecture le vérifie automatiquement.
 ## Démarrage
 
 ```bash
+docker compose up -d
 cd backend
 uv sync --extra dev
 uv run pytest
+uv run python -m career_match.cli.index_offers
+uv run python -m career_match.cli.search_offers path/to/profile.json
 ```
 
 ## Avancement

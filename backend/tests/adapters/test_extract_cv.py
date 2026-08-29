@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from career_match.adapters.extraction.service import extract_cv
+from career_match.adapters.llm.prompts import parse_profile_payload
 from career_match.adapters.llm.protocol import PROMPT_VERSION
 from career_match.adapters.parsing.pdf import EmptyPdfError, extract_text
 from career_match.adapters.storage.extraction_cache import ExtractionCache
@@ -17,6 +18,7 @@ from tests.adapters.pdf_fixtures import cv_pdf_bytes
 class FakeExtractor:
     def __init__(self) -> None:
         self.calls = 0
+        self.model_id = "fake-extractor"
 
     def extract_profile(self, cv_text: str) -> RawProfile:
         self.calls += 1
@@ -76,9 +78,25 @@ def test_prompt_or_model_change_busts_cache(tmp_path: Path) -> None:
     assert len({key_a, key_b, key_c}) == 3
 
 
-def test_parse_profile_payload_strips_fences() -> None:
-    from career_match.adapters.llm.groq_extractor import parse_profile_payload
+def test_extract_cv_is_provider_agnostic(tmp_path: Path) -> None:
+    """The orchestration layer must not care which extractor implementation it is given."""
 
+    class OtherFake:
+        model_id = "other-fake"
+
+        def extract_profile(self, cv_text: str) -> RawProfile:
+            return RawProfile(first_name="Pat", target_title="Data Engineer")
+
+    pdf_path = tmp_path / "cv.pdf"
+    pdf_path.write_bytes(cv_pdf_bytes("Pat Data Engineer Python"))
+    cache = ExtractionCache(tmp_path / "cache")
+    profile, from_cache = extract_cv(pdf_path, OtherFake(), cache, "other-fake")
+    assert from_cache is False
+    assert profile.first_name == "Pat"
+    assert profile.target_title == "Data Engineer"
+
+
+def test_parse_profile_payload_strips_fences() -> None:
     payload = """```json
     {"first_name": "Jane", "target_title": "Backend Engineer"}
     ```"""

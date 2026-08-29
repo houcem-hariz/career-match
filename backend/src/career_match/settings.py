@@ -20,8 +20,17 @@ class Settings(BaseSettings):
     groq_api_key: str = ""
     groq_base_url: str = "https://api.groq.com/openai/v1"
 
+    openai_api_key: str = ""
+    openai_chat_model: str = "gpt-4o-mini"
+    openai_base_url: str = "https://api.openai.com/v1"
+    llm_embedding_model: str = "text-embedding-3-small"
+    embedding_dimensions: int = 1536
+
+    database_url: str = "postgresql://career_match:career_match@127.0.0.1:5433/career_match"
+
     extraction_cache_enabled: bool = True
     extraction_cache_dir: Path = _PROJECT_ROOT / "data" / "cache"
+    embedding_cache_dir: Path = _PROJECT_ROOT / "data" / "cache" / "embeddings"
 
 
 def get_settings() -> Settings:

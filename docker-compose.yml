@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: career-match-postgres
+    environment:
+      POSTGRES_USER: career_match
+      POSTGRES_PASSWORD: career_match
+      POSTGRES_DB: career_match
+    ports:
+      - "5433:5432"
+    volumes:
+      - career_match_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U career_match -d career_match"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  career_match_pgdata:
