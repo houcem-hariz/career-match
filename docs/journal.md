@@ -86,3 +86,17 @@ Famille / lieu / mode de travail eliminent avant le ranking semantique. Lieu ign
 
 **2026-08-29 — Couche agnostique : Groq et OpenAI derriere la meme fabrique.**
 LLM_PROVIDER=groq | openai. Meme prompt, meme RawProfile. Defaut Groq (GPT-OSS 20B). OpenAI chat = gpt-4o-mini, embeddings inchanges. Les CLI n'instancient plus Groq en dur. Anthropic non branche.
+
+## Semaine 3
+
+**2026-08-30 — Offres structurees depuis les annotations + le referentiel, pas un second LLM.**
+skills_required du sidecar passe par la meme cascade que le CV. Les 5 competences les plus frequentes du referentiel deviennent mandatory, le reste preferred. Les soft skills tombent comme a la construction du referentiel. Raison : 120 textes identiques a extraire une deuxieme fois n ajouteraient que du cout et du bruit. En v2 : extraction structuree des offres si le corpus n a plus de sidecar.
+
+**2026-08-30 — Scoring a six dimensions, poids dans data/processed/scoring.json.**
+mandatory 0.35, preferred 0.15, seniority 0.15, education 0.10, languages 0.05, semantic 0.20. La similarite cosine vient de la recherche et entre dans domain comme un float : domain n appelle pas pgvector. Lieu et work_model restent des filtres, pas des axes de score.
+
+**2026-08-30 — Trois paniers determines par les ecarts mandatory et la seniorite.**
+ecart seniorite = candidat - offre. <= -3 : out_of_reach. 0 mandatory manquante et ecart >= -1 : eligible. <= 2 mandatory et ecart >= -2 : reachable. Sinon out_of_reach. Un preferred manque coute des points, jamais le panier. Les gaps sont le journal des memes comparaisons.
+
+**2026-08-30 — Catalogue ferme + simulation d impact, CLI match_profile.**
+Un cours clone le profil, ajoute ou releve une competence, puis on re-score. Pas de generation libre de formations. La CLI enchaine extract/normalize (si PDF), recherche, score, paniers, gaps, simulation. Jalon pivot : la chaine complete tient sans LangGraph ni front. En v2 : catalogue plus large, multi-competences par cours.

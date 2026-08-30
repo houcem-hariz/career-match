@@ -39,6 +39,7 @@ def cv_pdf_bytes(text: str) -> bytes:
         xref_lines.append(f"{offset:010d} 00000 n ")
     xref = ("\n".join(xref_lines) + "\n").encode("ascii")
     trailer = (
-        f"trailer << /Size {len(offsets)} /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF\n"
+        f"trailer << /Size {len(offsets)} /Root 1 0 R >>\n"
+        f"startxref\n{xref_offset}\n%%EOF\n"
     ).encode("ascii")
     return header + body + xref + trailer

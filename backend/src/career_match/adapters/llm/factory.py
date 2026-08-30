@@ -6,10 +6,7 @@ from career_match.adapters.embeddings.openai_embedder import OpenAIEmbedder
 from career_match.adapters.embeddings.protocol import Embedder
 from career_match.adapters.llm.chat import ChatOfferSkillExtractor, ChatProfileExtractor
 from career_match.adapters.llm.groq_extractor import GroqOfferSkillExtractor, GroqProfileExtractor
-from career_match.adapters.llm.openai_extractor import (
-    OpenAIOfferSkillExtractor,
-    OpenAIProfileExtractor,
-)
+from career_match.adapters.llm.openai_extractor import OpenAIOfferSkillExtractor, OpenAIProfileExtractor
 from career_match.settings import Settings
 
 

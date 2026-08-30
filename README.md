@@ -37,13 +37,14 @@ uv sync --extra dev
 uv run pytest
 uv run python -m career_match.cli.index_offers
 uv run python -m career_match.cli.search_offers path/to/profile.json
+uv run python -m career_match.cli.match_profile ../data/raw/cvs/jane_doe_backend.pdf --k 10
 ```
 
 ## Avancement
 
-- [ ] Semaine 1 : schémas pivot, extraction CV, corpus brut, référentiel
-- [ ] Semaine 2 : normalisation, indexation pgvector, recherche hybride, couche agnostique
-- [ ] Semaine 3 : scoring, paniers, écarts, simulation (jalon pivot : chaîne complète en CLI)
+- [x] Semaine 1 : schémas pivot, extraction CV, corpus brut, référentiel
+- [x] Semaine 2 : normalisation, indexation pgvector, recherche hybride, couche agnostique
+- [x] Semaine 3 : scoring, paniers, écarts, simulation (jalon pivot : chaîne complète en CLI)
 - [ ] Semaine 4 : pipeline LangGraph, serveur et client MCP
 - [ ] Semaine 5 : API, front, écran offres/détail
 - [ ] Semaine 6 : écran profil, chat, agent conversationnel

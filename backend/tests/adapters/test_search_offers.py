@@ -29,9 +29,7 @@ class FakeEmbedder:
         return vectors
 
 
-def _offer(
-    source_id: str, family: JobFamily, embedding: list[float], **kwargs: object
-) -> IndexedOffer:
+def _offer(source_id: str, family: JobFamily, embedding: list[float], **kwargs: object) -> IndexedOffer:
     payload: dict[str, object] = {
         "source_id": source_id,
         "title": source_id,

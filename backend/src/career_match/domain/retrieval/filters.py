@@ -39,9 +39,10 @@ def passes_filters(
         return False
     if filters.work_models and work_model is not None and work_model not in filters.work_models:
         return False
-    if not filters.apply_location or location_text is None:
-        return True
-    return location_matches(location_text, filters.locations)
+    if filters.apply_location and location_text is not None:
+        if not location_matches(location_text, filters.locations):
+            return False
+    return True
 
 
 def location_matches(location_text: str, needles: tuple[str, ...]) -> bool:

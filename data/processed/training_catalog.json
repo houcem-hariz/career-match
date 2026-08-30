@@ -1,0 +1,74 @@
+[
+  {
+    "course_id": "python-working",
+    "title": "Python for backend developers",
+    "skill_id": "python",
+    "target_level": 2
+  },
+  {
+    "course_id": "k8s-fundamentals",
+    "title": "Kubernetes fundamentals",
+    "skill_id": "kubernetes",
+    "target_level": 2
+  },
+  {
+    "course_id": "aws-cloud",
+    "title": "AWS cloud practitioner path",
+    "skill_id": "aws",
+    "target_level": 2
+  },
+  {
+    "course_id": "azure-cloud",
+    "title": "Azure fundamentals",
+    "skill_id": "azure",
+    "target_level": 2
+  },
+  {
+    "course_id": "react-working",
+    "title": "React in production",
+    "skill_id": "react",
+    "target_level": 2
+  },
+  {
+    "course_id": "ts-working",
+    "title": "TypeScript essentials",
+    "skill_id": "typescript",
+    "target_level": 2
+  },
+  {
+    "course_id": "postgres-working",
+    "title": "PostgreSQL for application developers",
+    "skill_id": "postgresql",
+    "target_level": 2
+  },
+  {
+    "course_id": "cicd-working",
+    "title": "CI/CD pipelines",
+    "skill_id": "cicd",
+    "target_level": 2
+  },
+  {
+    "course_id": "docker-working",
+    "title": "Docker and container basics",
+    "skill_id": "docker",
+    "target_level": 2
+  },
+  {
+    "course_id": "terraform-working",
+    "title": "Terraform fundamentals",
+    "skill_id": "terraform",
+    "target_level": 2
+  },
+  {
+    "course_id": "sql-working",
+    "title": "Practical SQL",
+    "skill_id": "sql",
+    "target_level": 2
+  },
+  {
+    "course_id": "java-working",
+    "title": "Java backend essentials",
+    "skill_id": "java",
+    "target_level": 2
+  }
+]

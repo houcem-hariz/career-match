@@ -19,10 +19,10 @@ from career_match.domain.models import (
     Offer,
     Profile,
     RawSkill,
-    RequiredSkill,
     SeniorityLevel,
     SkillLevel,
     SkillRequirement,
+    RequiredSkill,
 )
 
 

@@ -58,8 +58,7 @@ class InMemoryOfferIndex:
             reverse=True,
         )
         hits = tuple(
-            to_retrieved(row, cosine_similarity(query, row.embedding))
-            for row in ranked[: max(k, 0)]
+            to_retrieved(row, cosine_similarity(query, row.embedding)) for row in ranked[: max(k, 0)]
         )
         return hits, len(passed)
 
