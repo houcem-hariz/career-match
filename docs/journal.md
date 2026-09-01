@@ -100,3 +100,8 @@ ecart seniorite = candidat - offre. <= -3 : out_of_reach. 0 mandatory manquante 
 
 **2026-08-30 — Catalogue ferme + simulation d impact, CLI match_profile.**
 Un cours clone le profil, ajoute ou releve une competence, puis on re-score. Pas de generation libre de formations. La CLI enchaine extract/normalize (si PDF), recherche, score, paniers, gaps, simulation. Jalon pivot : la chaine complete tient sans LangGraph ni front. En v2 : catalogue plus large, multi-competences par cours.
+
+## Semaine 4
+
+**2026-09-01 — Pipeline : etat + noeuds avant le graphe LangGraph.**
+MatchState est un TypedDict in-process (objets domain, pas encore du JSON). Quatre noeuds (extract, normalize, retrieve, score) appellent les fonctions semaine 3. Le score ne re-cherche pas : score_retrieved reprend la boucle de match_profile. Les dependances (extracteur, pgvector, referentiel) sont injectees via PipelineDeps, pas dans l etat. En v2 : serialisation de l etat pour un graphe distribue.

@@ -9,6 +9,7 @@ from career_match.adapters.indexing.search import OfferSearcher, search_offers
 from career_match.adapters.storage.embedding_cache import EmbeddingCache
 from career_match.domain.models.offer import Offer
 from career_match.domain.models.profile import Profile
+from career_match.domain.retrieval.results import RetrievedOffer
 from career_match.domain.scoring.buckets import BUCKET_RANK
 from career_match.domain.scoring.catalog import TrainingCourse
 from career_match.domain.scoring.config import ScoringConfig
@@ -31,20 +32,19 @@ class MatchOutcome:
     query_from_cache: bool
 
 
-def match_profile(
+def score_retrieved(
     profile: Profile,
-    embedder: Embedder,
-    cache: EmbeddingCache,
-    store: OfferSearcher,
+    hits: tuple[RetrievedOffer, ...],
     offers_by_id: dict[str, Offer],
     catalogue: list[TrainingCourse],
     config: ScoringConfig,
     *,
-    k: int = 10,
+    candidate_count: int,
+    query_from_cache: bool,
 ) -> MatchOutcome:
-    search = search_offers(profile, embedder, cache, store, k=k)
+    """Score already-retrieved hits. The pipeline score node calls this, not search."""
     cards: list[MatchCard] = []
-    for hit in search.hits:
+    for hit in hits:
         offer = offers_by_id.get(hit.source_id)
         if offer is None:
             continue
@@ -68,6 +68,29 @@ def match_profile(
     cards.sort(key=lambda card: (BUCKET_RANK[card.breakdown.bucket], -card.breakdown.total))
     return MatchOutcome(
         cards=tuple(cards),
+        candidate_count=candidate_count,
+        query_from_cache=query_from_cache,
+    )
+
+
+def match_profile(
+    profile: Profile,
+    embedder: Embedder,
+    cache: EmbeddingCache,
+    store: OfferSearcher,
+    offers_by_id: dict[str, Offer],
+    catalogue: list[TrainingCourse],
+    config: ScoringConfig,
+    *,
+    k: int = 10,
+) -> MatchOutcome:
+    search = search_offers(profile, embedder, cache, store, k=k)
+    return score_retrieved(
+        profile,
+        search.hits,
+        offers_by_id,
+        catalogue,
+        config,
         candidate_count=search.candidate_count,
         query_from_cache=search.query_from_cache,
     )
