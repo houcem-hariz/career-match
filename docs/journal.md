@@ -111,3 +111,6 @@ PDF : extract puis normalize. JSON Profile (cle profile_id) : on saute extract e
 
 **2026-09-05 — CLI run_pipeline : meme JSON que match_profile, via le graphe.**
 La CLI semaine 3 reste. run_pipeline construit PipelineDeps depuis settings + fichiers processed, puis invoke LangGraph. Le payload JSON est partage (card_payload) pour que les deux entrees restent comparables a l oral. En v2 : une seule CLI, match_profile delegue au graphe.
+
+**2026-09-05 — Serveur MCP stdio : cinq outils, zero nouveau calcul.**
+extract_profile, normalize_profile, search_offers, match_profile, simulate_course. Les corps appellent les noeuds / le graphe / simulate_course du domain. FastMCP (SDK officiel mcp 1.x) expose le schema ; le serveur n invente pas le score. Client MCP = etape suivante. En v2 : transport HTTP si un second process distant doit s y brancher.

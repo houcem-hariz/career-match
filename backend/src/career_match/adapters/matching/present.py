@@ -1,8 +1,9 @@
-"""JSON view of a MatchCard. Shared by match_profile and run_pipeline."""
+"""JSON views of match cards and retrieval hits. Shared by CLIs and MCP tools."""
 
 from __future__ import annotations
 
 from career_match.adapters.matching.service import MatchCard
+from career_match.domain.retrieval.results import RetrievedOffer
 
 
 def card_payload(card: MatchCard, rank: int) -> dict[str, object]:
@@ -43,4 +44,17 @@ def card_payload(card: MatchCard, rank: int) -> dict[str, object]:
             }
             for item in card.simulations
         ],
+    }
+
+
+def hit_payload(hit: RetrievedOffer, rank: int) -> dict[str, object]:
+    return {
+        "rank": rank,
+        "similarity": hit.similarity,
+        "source_id": hit.source_id,
+        "title": hit.title,
+        "company": hit.company,
+        "family": hit.family.value,
+        "location_text": hit.location_text,
+        "work_model": hit.work_model,
     }

@@ -39,6 +39,7 @@ uv run python -m career_match.cli.index_offers
 uv run python -m career_match.cli.search_offers path/to/profile.json
 uv run python -m career_match.cli.match_profile ../data/raw/cvs/jane_doe_backend.pdf --k 10
 uv run python -m career_match.cli.run_pipeline ../data/raw/cvs/jane_doe_backend.pdf --k 10
+uv run python -m career_match.cli.mcp_server
 ```
 
 ## Avancement
