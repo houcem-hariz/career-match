@@ -105,3 +105,6 @@ Un cours clone le profil, ajoute ou releve une competence, puis on re-score. Pas
 
 **2026-09-01 — Pipeline : etat + noeuds avant le graphe LangGraph.**
 MatchState est un TypedDict in-process (objets domain, pas encore du JSON). Quatre noeuds (extract, normalize, retrieve, score) appellent les fonctions semaine 3. Le score ne re-cherche pas : score_retrieved reprend la boucle de match_profile. Les dependances (extracteur, pgvector, referentiel) sont injectees via PipelineDeps, pas dans l etat. En v2 : serialisation de l etat pour un graphe distribue.
+
+**2026-09-01 — Graphe LangGraph lineaire, un seul branchement PDF / JSON.**
+PDF : extract puis normalize. JSON Profile (cle profile_id) : on saute extract et normalize. JSON RawProfile : on saute extract, on normalise encore. Ensuite retrieve puis score, toujours. Le graphe n orchestre pas le calcul du score. En v2 : retry / humain dans la boucle.

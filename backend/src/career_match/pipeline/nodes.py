@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
+from typing import Any
 
 from career_match.adapters.extraction.service import extract_cv
 from career_match.adapters.indexing.search import search_offers
 from career_match.adapters.matching.service import score_retrieved
+from career_match.domain.models.profile import Profile, RawProfile
 from career_match.domain.normalization.cascade import normalize_profile
 from career_match.pipeline.deps import PipelineDeps
 from career_match.pipeline.state import MatchState
@@ -27,6 +30,16 @@ def extract_node(state: MatchState, deps: PipelineDeps) -> MatchState:
         "extracted_from_cache": from_cache,
         "source_cv_hash": digest,
     }
+
+
+def load_json_node(state: MatchState, deps: PipelineDeps) -> MatchState:
+    """Load a normalised Profile or a RawProfile from JSON. No LLM."""
+    del deps
+    path = Path(_require(state, "source_path"))
+    payload: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    if "profile_id" in payload:
+        return {"profile": Profile.model_validate(payload)}
+    return {"raw_profile": RawProfile.model_validate(payload)}
 
 
 def normalize_node(state: MatchState, deps: PipelineDeps) -> MatchState:
