@@ -108,3 +108,6 @@ MatchState est un TypedDict in-process (objets domain, pas encore du JSON). Quat
 
 **2026-09-01 — Graphe LangGraph lineaire, un seul branchement PDF / JSON.**
 PDF : extract puis normalize. JSON Profile (cle profile_id) : on saute extract et normalize. JSON RawProfile : on saute extract, on normalise encore. Ensuite retrieve puis score, toujours. Le graphe n orchestre pas le calcul du score. En v2 : retry / humain dans la boucle.
+
+**2026-09-05 — CLI run_pipeline : meme JSON que match_profile, via le graphe.**
+La CLI semaine 3 reste. run_pipeline construit PipelineDeps depuis settings + fichiers processed, puis invoke LangGraph. Le payload JSON est partage (card_payload) pour que les deux entrees restent comparables a l oral. En v2 : une seule CLI, match_profile delegue au graphe.
