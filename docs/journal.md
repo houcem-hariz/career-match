@@ -114,3 +114,6 @@ La CLI semaine 3 reste. run_pipeline construit PipelineDeps depuis settings + fi
 
 **2026-09-05 — Serveur MCP stdio : cinq outils, zero nouveau calcul.**
 extract_profile, normalize_profile, search_offers, match_profile, simulate_course. Les corps appellent les noeuds / le graphe / simulate_course du domain. FastMCP (SDK officiel mcp 1.x) expose le schema ; le serveur n invente pas le score. Client MCP = etape suivante. En v2 : transport HTTP si un second process distant doit s y brancher.
+
+**2026-09-06 — Client MCP stdio : process separe, decouverte des outils.**
+Le client spawn career_match.cli.mcp_server (ou un serveur de test) et parle le protocole. Il ne importe pas tools.py. list_tools montre la decouverte dynamique ; match_profile / call passent des JSON. Raison orale : MCP n est pas un import deguise. En v2 : client HTTP vers un serveur deja allume.
