@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <rect width="900" height="540" fill="#f7f7f5"/>
+  <rect x="24" y="24" width="852" height="492" rx="10" fill="#fff" stroke="#d4d4d0"/>
+  <rect x="24" y="24" width="852" height="32" rx="10" fill="#f0f0ec"/>
+  <rect x="24" y="46" width="852" height="10" fill="#f0f0ec"/>
+  <text x="40" y="44" font-family="ui-monospace, Consolas, monospace" font-size="12" fill="#73736c">/offers/offer_42</text>
+  <line x1="24" y1="56" x2="876" y2="56" stroke="#e4e4de"/>
+  <text x="44" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#1a1a18">career-match</text>
+  <text x="200" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Offres</text>
+  <text x="268" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Profil</text>
+  <text x="328" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Chat</text>
+  <text x="780" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#5c5c56">Se connecter</text>
+  <line x1="24" y1="98" x2="876" y2="98" stroke="#e4e4de"/>
+  <text x="44" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">ê Offres</text>
+  <text x="44" y="162" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="600" fill="#1a1a18">Staff Backend Engineer ∑ Globex</text>
+  <rect x="700" y="142" width="156" height="26" rx="13" fill="#f0f0ec" stroke="#d4d4d0"/>
+  <text x="714" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">out_of_reach ∑ 54</text>
+  <text x="44" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#6b6b64">6 dimensions (01)</text>
+  <text x="780" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#6b6b64">54 / 100</text>
+  <rect x="44" y="206" width="812" height="12" rx="6" fill="#ecece6"/>
+  <rect x="44" y="206" width="120" height="12" rx="6" fill="#8a8a84"/>
+  <rect x="168" y="206" width="60" height="12" fill="#a3a39a"/>
+  <rect x="232" y="206" width="90" height="12" fill="#6b6b64"/>
+  <rect x="326" y="206" width="110" height="12" fill="#4a4a46"/>
+  <rect x="440" y="206" width="110" height="12" fill="#3a3a36"/>
+  <rect x="554" y="206" width="160" height="12" fill="#1a1a18"/>
+  <text x="44" y="238" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#8a8a84">mandatory ∑ preferred ∑ seniority ∑ education ∑ languages ∑ semantic</text>
+  <line x1="44" y1="256" x2="856" y2="256" stroke="#e4e4de"/>
+  <text x="44" y="284" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a18">Gaps</text>
+  <rect x="44" y="296" width="812" height="32" rx="6" fill="#fafaf8" stroke="#e4e4de"/>
+  <text x="60" y="316" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">go  mandatory  have:   need: working</text>
+  <rect x="44" y="336" width="812" height="32" rx="6" fill="#fafaf8" stroke="#e4e4de"/>
+  <text x="60" y="356" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">react  mandatory  have:   need: working</text>
+  <text x="44" y="400" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a18">Simulations</text>
+  <rect x="44" y="412" width="812" height="48" rx="8" fill="#fafaf8" stroke="#d4d4d0"/>
+  <text x="60" y="442" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">Intro to React  ∑  54 í 61  ∑  out_of_reach í reachable</text>
+</svg>

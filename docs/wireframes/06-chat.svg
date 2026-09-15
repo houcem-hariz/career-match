@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <rect width="900" height="540" fill="#f7f7f5"/>
+  <rect x="24" y="24" width="852" height="492" rx="10" fill="#fff" stroke="#d4d4d0"/>
+  <rect x="24" y="24" width="852" height="32" rx="10" fill="#f0f0ec"/>
+  <rect x="24" y="46" width="852" height="10" fill="#f0f0ec"/>
+  <text x="40" y="44" font-family="ui-monospace, Consolas, monospace" font-size="12" fill="#73736c">/offers  + tiroir chat   (semaine 6)</text>
+  <line x1="24" y1="56" x2="876" y2="56" stroke="#e4e4de"/>
+  <text x="44" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#1a1a18">career-match</text>
+  <text x="200" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a18">Offres</text>
+  <text x="268" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Profil</text>
+  <text x="328" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a18">Chat</text>
+  <text x="780" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#5c5c56">Se connecter</text>
+  <line x1="24" y1="98" x2="876" y2="98" stroke="#e4e4de"/>
+  <!-- list remains -->
+  <text x="44" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Jane · Senior Backend · remote · 7 offres</text>
+  <rect x="44" y="148" width="520" height="64" rx="8" fill="#fafaf8" stroke="#d4d4d0"/>
+  <text x="60" y="176" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a18">Staff Backend</text>
+  <text x="60" y="196" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#6b6b64">Globex · out_of_reach · 54</text>
+  <rect x="44" y="224" width="520" height="64" rx="8" fill="#fafaf8" stroke="#d4d4d0"/>
+  <text x="60" y="252" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a18">Backend Python</text>
+  <text x="60" y="272" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#6b6b64">Acme · reachable · 61</text>
+  <!-- drawer -->
+  <line x1="588" y1="98" x2="588" y2="516" stroke="#d4d4d0"/>
+  <rect x="588" y="98" width="288" height="418" fill="#f7f7f5"/>
+  <text x="608" y="128" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="600" fill="#1a1a18">Chat</text>
+  <rect x="608" y="148" width="248" height="56" rx="8" fill="#fff" stroke="#e4e4de"/>
+  <text x="620" y="172" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#6b6b64">Pourquoi cette offre est</text>
+  <text x="620" y="188" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#6b6b64">out_of_reach ?</text>
+  <rect x="608" y="216" width="248" height="88" rx="8" fill="#fff" stroke="#d4d4d0"/>
+  <text x="620" y="240" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">3 mandatory manquent,</text>
+  <text x="620" y="258" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">dont React. Un cours du</text>
+  <text x="620" y="276" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">catalogue la passe en</text>
+  <text x="620" y="294" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">reachable.</text>
+  <rect x="608" y="460" width="248" height="36" rx="6" fill="#fff" stroke="#c8c8c0"/>
+  <text x="620" y="482" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#9a9a92">Votre message...</text>
+</svg>

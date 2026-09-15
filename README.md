@@ -56,4 +56,5 @@ uv run python -m career_match.cli.mcp_client match ../data/raw/cvs/jane_doe_back
 - [ ] Semaine 8 : rapport, démo
 
 Les décisions de conception et les raccourcis assumés sont consignés dans
-[docs/journal.md](docs/journal.md).
+[docs/journal.md](docs/journal.md). Les maquettes d'interface (fil de fer) sont
+dans [docs/wireframes](docs/wireframes/README.md).

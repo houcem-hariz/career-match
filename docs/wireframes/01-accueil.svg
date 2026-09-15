@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <rect width="900" height="540" fill="#f7f7f5"/>
+  <rect x="24" y="24" width="852" height="492" rx="10" fill="#fff" stroke="#d4d4d0"/>
+  <!-- url -->
+  <rect x="24" y="24" width="852" height="32" rx="10" fill="#f0f0ec"/>
+  <rect x="24" y="46" width="852" height="10" fill="#f0f0ec"/>
+  <text x="40" y="44" font-family="ui-monospace, Consolas, monospace" font-size="12" fill="#73736c">/</text>
+  <!-- app bar: logo + Se connecter only -->
+  <line x1="24" y1="56" x2="876" y2="56" stroke="#e4e4de"/>
+  <text x="44" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#1a1a18">career-match</text>
+  <text x="780" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#5c5c56">Se connecter</text>
+  <line x1="24" y1="98" x2="876" y2="98" stroke="#e4e4de"/>
+  <!-- body -->
+  <text x="80" y="160" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="600" fill="#1a1a18">Trouvez les offres qui collent a votre profil.</text>
+  <text x="80" y="186" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Un mini-CV, un PDF, ou un exemple. Pas une recherche d offres.</text>
+  <rect x="80" y="210" width="740" height="88" rx="8" fill="#fafaf8" stroke="#c8c8c0"/>
+  <text x="96" y="248" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" fill="#9a9a92">Senior backend, Python, 6 ans, remote...</text>
+  <rect x="80" y="314" width="72" height="34" rx="6" fill="#fff" stroke="#c8c8c0"/>
+  <text x="102" y="336" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">PDF</text>
+  <rect x="164" y="314" width="140" height="34" rx="6" fill="#1a1a18"/>
+  <text x="180" y="336" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#fff">Lancer le match</text>
+  <rect x="80" y="368" width="268" height="28" rx="14" fill="#f0f0ec" stroke="#d4d4d0"/>
+  <text x="96" y="387" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#3a3a36">Senior backend, Python, remote</text>
+  <rect x="360" y="368" width="268" height="28" rx="14" fill="#f0f0ec" stroke="#d4d4d0"/>
+  <text x="376" y="387" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#3a3a36">Frontend React, hybride, Paris</text>
+  <rect x="640" y="368" width="180" height="28" rx="14" fill="#f0f0ec" stroke="#d4d4d0"/>
+  <text x="656" y="387" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#3a3a36">Data junior, Python</text>
+  <text x="80" y="440" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#8a8a84">Pas de bandeau Offres / Profil / Chat  aucun profil en session.</text>
+</svg>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" width="900" height="540">
+  <rect width="900" height="540" fill="#f7f7f5"/>
+  <rect x="24" y="24" width="852" height="492" rx="10" fill="#fff" stroke="#d4d4d0"/>
+  <rect x="24" y="24" width="852" height="32" rx="10" fill="#f0f0ec"/>
+  <rect x="24" y="46" width="852" height="10" fill="#f0f0ec"/>
+  <text x="40" y="44" font-family="ui-monospace, Consolas, monospace" font-size="12" fill="#73736c">/profile   (semaine 6)</text>
+  <line x1="24" y1="56" x2="876" y2="56" stroke="#e4e4de"/>
+  <text x="44" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#1a1a18">career-match</text>
+  <text x="200" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Offres</text>
+  <text x="268" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" fill="#1a1a18">Profil</text>
+  <text x="328" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Chat</text>
+  <text x="752" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#5c5c56">Jane · compte</text>
+  <line x1="24" y1="98" x2="876" y2="98" stroke="#e4e4de"/>
+  <text x="44" y="140" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="600" fill="#1a1a18">Profil</text>
+  <text x="740" y="140" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">Nouveau profil</text>
+  <text x="44" y="168" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#6b6b64">Jane · senior · backend · remote</text>
+  <rect x="44" y="188" width="812" height="160" rx="8" fill="#fafaf8" stroke="#d4d4d0"/>
+  <text x="64" y="220" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#8a8a84">Competences</text>
+  <rect x="64" y="232" width="72" height="24" rx="12" fill="#fff" stroke="#d4d4d0"/>
+  <text x="78" y="248" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">python</text>
+  <rect x="148" y="232" width="96" height="24" rx="12" fill="#fff" stroke="#d4d4d0"/>
+  <text x="158" y="248" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">kubernetes</text>
+  <rect x="256" y="232" width="72" height="24" rx="12" fill="#fff" stroke="#d4d4d0"/>
+  <text x="270" y="248" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#1a1a18">django</text>
+  <text x="64" y="292" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#8a8a84">Preferences</text>
+  <text x="64" y="318" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">work_models: remote     willing_to_relocate: non</text>
+  <rect x="44" y="372" width="120" height="34" rx="6" fill="#1a1a18"/>
+  <text x="62" y="394" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#fff">Recalculer</text>
+  <rect x="176" y="372" width="88" height="34" rx="6" fill="#fff" stroke="#c8c8c0"/>
+  <text x="196" y="394" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#1a1a18">Annuler</text>
+  <text x="44" y="440" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" fill="#8a8a84">Recalculer ’ /offers. Nouveau profil ’ confirmation ’ /.</text>
+</svg>
