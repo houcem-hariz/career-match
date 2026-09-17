@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from career_match.adapters.extraction.service import extract_cv
+from career_match.adapters.extraction.service import extract_cv, extract_from_text
 from career_match.adapters.llm.prompts import parse_profile_payload
 from career_match.adapters.llm.protocol import PROMPT_VERSION
 from career_match.adapters.parsing.pdf import EmptyPdfError, extract_text
@@ -52,6 +52,22 @@ def test_cache_disabled_never_reads_or_writes(tmp_path: Path) -> None:
     cache.put(key, {"first_name": "Jane"})
     assert cache.get(key) is None
     assert not list(tmp_path.iterdir())
+
+
+def test_extract_from_text_uses_cache_on_second_call(tmp_path: Path) -> None:
+    cache = ExtractionCache(tmp_path / "cache")
+    extractor = FakeExtractor()
+    first, from_cache = extract_from_text("Jane Doe Python", extractor, cache, "fake")
+    second, second_from_cache = extract_from_text(
+        "Jane Doe Python",
+        extractor,
+        cache,
+        "fake",
+    )
+    assert from_cache is False
+    assert second_from_cache is True
+    assert extractor.calls == 1
+    assert first.first_name == second.first_name == "Jane"
 
 
 def test_extract_cv_uses_cache_on_second_call(tmp_path: Path) -> None:

@@ -1,1 +1,1 @@
-"""Command-line entry points. Week 1 starts here; the HTTP API comes later."""
+"""Command-line entry points. The HTTP API lives in career_match.api."""

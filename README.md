@@ -42,6 +42,7 @@ uv run python -m career_match.cli.run_pipeline ../data/raw/cvs/jane_doe_backend.
 uv run python -m career_match.cli.mcp_server
 uv run python -m career_match.cli.mcp_client list
 uv run python -m career_match.cli.mcp_client match ../data/raw/cvs/jane_doe_backend.pdf --k 10
+uv run python -m career_match.cli.serve
 ```
 
 ## Avancement
