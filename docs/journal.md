@@ -122,3 +122,6 @@ Le client spawn career_match.cli.mcp_server (ou un serveur de test) et parle le 
 
 **2026-09-17 — API FastAPI : POST /api/match, zero nouveau score.**
 Facade HTTP sur run_matching + card_payload. Trois entrees exclusives : PDF, texte (mini-CV, meme extracteur), example jane_doe_backend. Session auth et front : etapes suivantes. Tests avec les fakes pipeline. En v2 : session persistante et quota.
+
+**2026-09-18 — OpenAPI comme source de verite de l'API.**
+Modeles Pydantic (MatchJsonBody, CardPayload, MatchResponse) + requestBody JSON ou multipart dans le schema. Swagger /docs, ReDoc /redoc. Un markdown court (docs/api.md) pointe vers ces URLs, sans recopier les champs. En v2 : exporter openapi.json dans CI.

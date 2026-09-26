@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, cast
+from typing import cast
 
 from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,6 +11,8 @@ from fastapi.responses import JSONResponse
 from starlette.datastructures import UploadFile
 
 from career_match.api.match import MatchRequestError, run_match
+from career_match.api.openapi import API_DESCRIPTION, MATCH_REQUEST_BODY, install_openapi
+from career_match.api.schemas import ErrorBody, MatchResponse
 from career_match.pipeline.deps import PipelineDeps
 from career_match.pipeline.runtime import build_live_deps, default_data_paths
 from career_match.settings import Settings, get_settings, project_root
@@ -21,7 +23,7 @@ def create_app(
     *,
     examples: dict[str, Path] | None = None,
 ) -> FastAPI:
-    app = FastAPI(title="career-match", version="0.1.0")
+    app = FastAPI(title="career-match", version="0.1.0", description=API_DESCRIPTION)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -35,13 +37,24 @@ def create_app(
     async def _match_request_error(_request: Request, exc: MatchRequestError) -> JSONResponse:
         return JSONResponse(status_code=400, content={"detail": str(exc)})
 
-    @app.post("/api/match")
+    @app.post(
+        "/api/match",
+        response_model=MatchResponse,
+        responses={400: {"model": ErrorBody, "description": "Missing, extra, or unknown source"}},
+        tags=["matching"],
+        summary="Score offers against a profile",
+        description=(
+            "Send exactly one source: JSON `text`, JSON `example` (`jane_doe_backend`), "
+            "or multipart `cv` (PDF). Wraps LangGraph; does not invent a score."
+        ),
+        openapi_extra={"requestBody": MATCH_REQUEST_BODY},
+    )
     async def match(
         request: Request,
-        k: int = Query(10, ge=1, le=120),
-    ) -> dict[str, Any]:
+        k: int = Query(10, ge=1, le=120, description="Top-k after filters"),
+    ) -> MatchResponse:
         pdf_bytes, text, example, body_k = await _read_body(request)
-        return run_match(
+        payload = run_match(
             cast(PipelineDeps, request.app.state.deps),
             k=body_k if body_k is not None else k,
             pdf_bytes=pdf_bytes,
@@ -49,7 +62,9 @@ def create_app(
             example=example,
             examples=cast(dict[str, Path], request.app.state.examples),
         )
+        return MatchResponse.model_validate(payload)
 
+    install_openapi(app)
     return app
 
 
