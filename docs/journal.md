@@ -125,3 +125,6 @@ Facade HTTP sur run_matching + card_payload. Trois entrees exclusives : PDF, tex
 
 **2026-09-18 — OpenAPI comme source de verite de l'API.**
 Modeles Pydantic (MatchJsonBody, CardPayload, MatchResponse) + requestBody JSON ou multipart dans le schema. Swagger /docs, ReDoc /redoc. Un markdown court (docs/api.md) pointe vers ces URLs, sans recopier les champs. En v2 : exporter openapi.json dans CI.
+
+**2026-09-27 — Session invite en memoire + GET des cartes.**
+POST /api/match pose un cookie httponly `cm_session` et y range cards + Profile. GET /api/offers et GET /api/offers/{source_id} relisent sans rescoring. Pas d'auth. CORS restreint aux localhost front (credentials). En v2 : Redis / compte.

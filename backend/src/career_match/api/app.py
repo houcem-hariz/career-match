@@ -5,37 +5,52 @@ from __future__ import annotations
 from pathlib import Path
 from typing import cast
 
-from fastapi import FastAPI, Query, Request
+from fastapi import FastAPI, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.datastructures import UploadFile
 
-from career_match.api.match import MatchRequestError, run_match
+from career_match.api.match import HttpMatchResult, MatchRequestError, run_match
 from career_match.api.openapi import API_DESCRIPTION, MATCH_REQUEST_BODY, install_openapi
-from career_match.api.schemas import ErrorBody, MatchResponse
+from career_match.api.schemas import CardPayload, ErrorBody, MatchResponse
+from career_match.api.session import COOKIE_NAME, GuestSession, NotFoundError, SessionStore
 from career_match.pipeline.deps import PipelineDeps
 from career_match.pipeline.runtime import build_live_deps, default_data_paths
 from career_match.settings import Settings, get_settings, project_root
+
+_CORS_ORIGINS = (
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+)
 
 
 def create_app(
     deps: PipelineDeps,
     *,
     examples: dict[str, Path] | None = None,
+    store: SessionStore | None = None,
 ) -> FastAPI:
     app = FastAPI(title="career-match", version="0.1.0", description=API_DESCRIPTION)
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],
+        allow_origins=list(_CORS_ORIGINS),
+        allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
     )
     app.state.deps = deps
     app.state.examples = examples or {}
+    app.state.store = store or SessionStore()
 
     @app.exception_handler(MatchRequestError)
     async def _match_request_error(_request: Request, exc: MatchRequestError) -> JSONResponse:
         return JSONResponse(status_code=400, content={"detail": str(exc)})
+
+    @app.exception_handler(NotFoundError)
+    async def _not_found_error(_request: Request, exc: NotFoundError) -> JSONResponse:
+        return JSONResponse(status_code=404, content={"detail": str(exc)})
 
     @app.post(
         "/api/match",
@@ -45,16 +60,17 @@ def create_app(
         summary="Score offers against a profile",
         description=(
             "Send exactly one source: JSON `text`, JSON `example` (`jane_doe_backend`), "
-            "or multipart `cv` (PDF). Wraps LangGraph; does not invent a score."
+            "or multipart `cv` (PDF). Stores cards in a guest cookie session."
         ),
         openapi_extra={"requestBody": MATCH_REQUEST_BODY},
     )
     async def match(
         request: Request,
+        response: Response,
         k: int = Query(10, ge=1, le=120, description="Top-k after filters"),
     ) -> MatchResponse:
         pdf_bytes, text, example, body_k = await _read_body(request)
-        payload = run_match(
+        result = run_match(
             cast(PipelineDeps, request.app.state.deps),
             k=body_k if body_k is not None else k,
             pdf_bytes=pdf_bytes,
@@ -62,10 +78,55 @@ def create_app(
             example=example,
             examples=cast(dict[str, Path], request.app.state.examples),
         )
-        return MatchResponse.model_validate(payload)
+        _save_match(request, response, result)
+        return MatchResponse.model_validate(result.as_payload())
+
+    @app.get(
+        "/api/offers",
+        response_model=MatchResponse,
+        responses={404: {"model": ErrorBody, "description": "No match stored for this session"}},
+        tags=["matching"],
+        summary="List scored cards from the guest session",
+    )
+    async def list_offers(request: Request) -> MatchResponse:
+        store_ = cast(SessionStore, request.app.state.store)
+        return store_.require(request.cookies.get(COOKIE_NAME)).to_match_response()
+
+    @app.get(
+        "/api/offers/{source_id}",
+        response_model=CardPayload,
+        responses={404: {"model": ErrorBody, "description": "No session or unknown source_id"}},
+        tags=["matching"],
+        summary="One scored card from the guest session",
+    )
+    async def get_offer(source_id: str, request: Request) -> CardPayload:
+        store_ = cast(SessionStore, request.app.state.store)
+        return store_.require(request.cookies.get(COOKIE_NAME)).card(source_id)
 
     install_openapi(app)
     return app
+
+
+def _save_match(request: Request, response: Response, result: HttpMatchResult) -> None:
+    store = cast(SessionStore, request.app.state.store)
+    session_id = request.cookies.get(COOKIE_NAME) or store.new_id()
+    store.put(
+        session_id,
+        GuestSession(
+            candidate_count=result.candidate_count,
+            query_from_cache=result.query_from_cache,
+            cards=[CardPayload.model_validate(card) for card in result.cards],
+            profile=result.profile,
+        ),
+    )
+    response.set_cookie(
+        COOKIE_NAME,
+        session_id,
+        httponly=True,
+        samesite="lax",
+        max_age=86400,
+        path="/",
+    )
 
 
 async def _read_body(

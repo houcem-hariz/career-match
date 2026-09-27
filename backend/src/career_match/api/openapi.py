@@ -20,6 +20,11 @@ Interactive docs: [/docs](/docs) (Swagger) and [/redoc](/redoc).
 - JSON `text` — a mini-CV paragraph
 - JSON `example` — `jane_doe_backend`
 - multipart `cv` — a text PDF
+
+A guest cookie (`cm_session`) stores the cards. Then:
+
+- `GET /api/offers` — same envelope, no rescore
+- `GET /api/offers/{source_id}` — one card
 """.strip()
 
 _JSON_EXAMPLES: dict[str, Any] = {

@@ -27,6 +27,8 @@ def test_openapi_documents_json_and_pdf_bodies(tmp_path: Path) -> None:
     card_fields = schemas["CardPayload"]["properties"]
     for key in ("bucket", "score", "dimensions", "gaps", "simulations"):
         assert key in card_fields
+    assert spec["paths"]["/api/offers"]["get"]["responses"]["200"]
+    assert spec["paths"]["/api/offers/{source_id}"]["get"]["responses"]["200"]
 
 
 def test_docs_ui_is_served(tmp_path: Path) -> None:

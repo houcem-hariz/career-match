@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Any
@@ -9,6 +10,7 @@ from typing import Any
 from career_match.adapters.extraction.service import extract_from_text
 from career_match.adapters.matching.present import card_payload
 from career_match.adapters.parsing.pdf import EmptyPdfError
+from career_match.domain.models.profile import Profile
 from career_match.pipeline.deps import PipelineDeps
 from career_match.pipeline.graph import run_matching
 
@@ -17,15 +19,31 @@ class MatchRequestError(ValueError):
     """User input that should map to HTTP 400."""
 
 
-def match_payload(deps: PipelineDeps, source: Path, *, k: int) -> dict[str, Any]:
-    """Same JSON envelope as the MCP match_profile tool."""
+@dataclass(frozen=True)
+class HttpMatchResult:
+    candidate_count: int
+    query_from_cache: bool
+    cards: list[dict[str, Any]]
+    profile: Profile | None
+
+    def as_payload(self) -> dict[str, Any]:
+        return {
+            "candidate_count": self.candidate_count,
+            "query_from_cache": self.query_from_cache,
+            "cards": self.cards,
+        }
+
+
+def match_payload(deps: PipelineDeps, source: Path, *, k: int) -> HttpMatchResult:
+    """Same JSON envelope as the MCP match_profile tool, plus the scored Profile."""
     state = run_matching(deps, source, k=k)
     cards = state.get("cards", ())
-    return {
-        "candidate_count": state.get("candidate_count", len(cards)),
-        "query_from_cache": state.get("query_from_cache", False),
-        "cards": [card_payload(card, rank) for rank, card in enumerate(cards, start=1)],
-    }
+    return HttpMatchResult(
+        candidate_count=state.get("candidate_count", len(cards)),
+        query_from_cache=state.get("query_from_cache", False),
+        cards=[card_payload(card, rank) for rank, card in enumerate(cards, start=1)],
+        profile=state.get("profile"),
+    )
 
 
 def run_match(
@@ -36,7 +54,7 @@ def run_match(
     text: str | None = None,
     example: str | None = None,
     examples: dict[str, Path] | None = None,
-) -> dict[str, Any]:
+) -> HttpMatchResult:
     k = _require_k(k)
     kind, value = _one_source(pdf_bytes=pdf_bytes, text=text, example=example)
     known = examples or {}
