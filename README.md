@@ -59,4 +59,5 @@ uv run python -m career_match.cli.serve
 Les décisions de conception et les raccourcis assumés sont consignés dans
 [docs/journal.md](docs/journal.md). Les maquettes d'interface (fil de fer) sont
 dans [docs/wireframes](docs/wireframes/README.md). La doc API (OpenAPI / Swagger)
-est dans [docs/api.md](docs/api.md).
+est dans [docs/api.md](docs/api.md). Le brief Next.js (semaine 5) est dans
+[docs/frontend.md](docs/frontend.md).
