@@ -110,16 +110,7 @@ export async function matchPdf(file: File, k = 10): Promise<MatchResponse> {
   return res.json();
 }
 
-function hasSessionCookie(): boolean {
-  if (typeof document === "undefined") return false;
-  return document.cookie.split(";").some((cookie) =>
-    cookie.trim().startsWith("cm_session=")
-  );
-}
-
 export async function listOffers(): Promise<MatchResponse | null> {
-  if (!hasSessionCookie()) return null;
-
   const res = await fetch(`/api/offers`, { credentials: "include" });
   if (res.status === 404) return null;
   if (!res.ok) {
@@ -130,8 +121,6 @@ export async function listOffers(): Promise<MatchResponse | null> {
 }
 
 export async function getOffer(sourceId: string): Promise<CardPayload | null> {
-  if (!hasSessionCookie()) return null;
-
   const res = await fetch(`/api/offers/${sourceId}`, {
     credentials: "include",
   });
