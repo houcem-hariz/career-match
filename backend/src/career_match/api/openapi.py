@@ -15,16 +15,25 @@ The scorer is not reimplemented here.
 
 Interactive docs: [/docs](/docs) (Swagger) and [/redoc](/redoc).
 
+Try then save: `POST /api/match` works without an account. The account only
+persists and restores the Profile (plus last cards). One account = one profile.
+
 `POST /api/match` accepts **exactly one** source:
 
 - JSON `text` — a mini-CV paragraph
 - JSON `example` — `jane_doe_backend`
 - multipart `cv` — a text PDF
 
-A guest cookie (`cm_session`) stores the cards. Then:
+A cookie (`cm_session`) stores cards + Profile in RAM. Then:
 
 - `GET /api/offers` — same envelope, no rescore
 - `GET /api/offers/{source_id}` — one card
+- `GET /api/profile` / `PUT /api/profile` — read or correct; PUT does not rescore
+- `POST /api/rematch` — rescore the stored Profile (graph JSON path)
+- `POST /api/auth/register` · `login` · `logout` · `GET /api/auth/me`
+
+On register/login, an in-memory Profile wins and is copied onto the account.
+If the guest has none, the session is hydrated from the account snapshot.
 """.strip()
 
 _JSON_EXAMPLES: dict[str, Any] = {
