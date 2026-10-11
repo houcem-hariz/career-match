@@ -1,4 +1,4 @@
-"""In-memory guest session. Cookie only; no accounts yet."""
+"""In-memory session. Cookie is only the id; cards and Profile live in RAM."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ COOKIE_NAME = "cm_session"
 
 
 class NotFoundError(ValueError):
-    """Missing session or unknown offer. Maps to HTTP 404."""
+    """Missing session, profile, cards, or unknown offer. Maps to HTTP 404."""
 
 
 @dataclass
@@ -21,6 +21,7 @@ class GuestSession:
     query_from_cache: bool
     cards: list[CardPayload]
     profile: Profile | None = None
+    user_id: str | None = None
 
     def to_match_response(self) -> MatchResponse:
         return MatchResponse(
@@ -51,7 +52,19 @@ class SessionStore:
     def require(self, session_id: str | None) -> GuestSession:
         session = self.get(session_id)
         if session is None:
+            raise NotFoundError("No session. POST /api/match or POST /api/auth/login first.")
+        return session
+
+    def require_cards(self, session_id: str | None) -> GuestSession:
+        session = self.require(session_id)
+        if not session.cards:
             raise NotFoundError("No match in this session. POST /api/match first.")
+        return session
+
+    def require_profile(self, session_id: str | None) -> GuestSession:
+        session = self.require(session_id)
+        if session.profile is None:
+            raise NotFoundError("No profile in this session. POST /api/match first.")
         return session
 
     def put(self, session_id: str, session: GuestSession) -> None:

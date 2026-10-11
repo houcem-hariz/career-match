@@ -7,6 +7,10 @@ Contrat **OpenAPI** généré par FastAPI. Ne pas dupliquer les champs ici.
 3. ReDoc (lire) : http://127.0.0.1:8000/redoc
 4. Spécification : http://127.0.0.1:8000/openapi.json
 
-`POST /api/match` : exactement une entrée parmi JSON `text` (mini-CV), JSON `example` (`jane_doe_backend`), ou fichier PDF `cv`. Cookie de session invité (`cm_session`).
+`POST /api/match` : exactement une entrée parmi JSON `text` (mini-CV), JSON `example` (`jane_doe_backend`), ou fichier PDF `cv`. Cookie de session (`cm_session`). Pas de compte obligatoire.
 
 Puis, sans recalcul : `GET /api/offers` (liste) et `GET /api/offers/{source_id}` (détail). Même cartes que `run_pipeline`.
+
+Profil : `GET /api/profile`, `PUT /api/profile` (correction, pas de rescoring). Recalcul : `POST /api/rematch`.
+
+Auth essayer-puis-sauver : `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`. Un compte = un profil. La session en RAM gagne à la connexion.
