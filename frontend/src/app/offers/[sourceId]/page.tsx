@@ -20,14 +20,7 @@ import {
   CheckCircle2,
   XCircle,
   Sparkles,
-  ShieldCheck,
-  Star,
-  Clock,
-  GraduationCap,
-  Globe,
-  BookOpen,
   ArrowRight,
-  Target,
   Heart,
   X,
 } from "lucide-react";
@@ -42,14 +35,16 @@ export default function OfferDetailPage() {
 
   useEffect(() => {
     if (!params.sourceId) return;
-    getOffer(params.sourceId).then((result) => {
-      if (!result) {
-        setNotFound(true);
-      } else {
-        setCard(result);
-      }
-      setLoading(false);
-    });
+    getOffer(params.sourceId)
+      .then((result) => {
+        if (!result) {
+          setNotFound(true);
+        } else {
+          setCard(result);
+        }
+      })
+      .catch(() => setNotFound(true))
+      .finally(() => setLoading(false));
   }, [params.sourceId]);
 
   if (loading) {
@@ -176,7 +171,7 @@ export default function OfferDetailPage() {
           {/* "Pourquoi c'est un match" (Why it's a match checklist from Screenshot 2!) */}
           <div className="mt-8 pt-6 border-t border-slate-100">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
-              Why it's a match
+              Why it&apos;s a match
             </span>
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 border border-emerald-200">
