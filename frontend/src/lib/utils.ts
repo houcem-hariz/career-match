@@ -128,6 +128,37 @@ export function formatWorkModel(model: string): string {
   }
 }
 
+export const SENIORITY_LABELS: Record<number, string> = {
+  1: "Junior",
+  2: "Mid",
+  3: "Senior",
+  4: "Lead",
+};
+
+export const SKILL_LEVEL_LABELS: Record<number, string> = {
+  1: "Awareness",
+  2: "Working",
+  3: "Proficient",
+  4: "Expert",
+};
+
+export const EDUCATION_LABELS: Record<number, string> = {
+  0: "None",
+  1: "High school",
+  2: "Bachelor",
+  3: "Master",
+  4: "Doctorate",
+};
+
+export const CEFR_LABELS: Record<number, string> = {
+  1: "A1",
+  2: "A2",
+  3: "B1",
+  4: "B2",
+  5: "C1",
+  6: "C2",
+};
+
 export function formatFamily(family: string): string {
   return family
     ?.split("_")
