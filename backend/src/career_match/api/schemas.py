@@ -77,3 +77,17 @@ class MatchResponse(BaseModel):
 
 class ErrorBody(BaseModel):
     detail: str
+
+
+class AuthCredentials(BaseModel):
+    """Email + password. No OAuth in this project."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    email: str
+    password: str = Field(min_length=1, description="Plain password. Never logged or returned.")
+
+
+class MeResponse(BaseModel):
+    authenticated: bool
+    email: str | None = None

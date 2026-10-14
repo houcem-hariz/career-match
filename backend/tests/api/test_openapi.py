@@ -29,6 +29,16 @@ def test_openapi_documents_json_and_pdf_bodies(tmp_path: Path) -> None:
         assert key in card_fields
     assert spec["paths"]["/api/offers"]["get"]["responses"]["200"]
     assert spec["paths"]["/api/offers/{source_id}"]["get"]["responses"]["200"]
+    assert spec["paths"]["/api/profile"]["get"]["responses"]["200"]
+    assert spec["paths"]["/api/profile"]["put"]["responses"]["200"]
+    assert spec["paths"]["/api/rematch"]["post"]["responses"]["200"]
+    assert spec["paths"]["/api/auth/register"]["post"]["responses"]["201"]
+    assert spec["paths"]["/api/auth/login"]["post"]["responses"]["200"]
+    assert spec["paths"]["/api/auth/logout"]["post"]["responses"]["204"]
+    assert spec["paths"]["/api/auth/me"]["get"]["responses"]["200"]
+    assert "AuthCredentials" in schemas
+    assert "MeResponse" in schemas
+    assert "Profile" in schemas
 
 
 def test_docs_ui_is_served(tmp_path: Path) -> None:

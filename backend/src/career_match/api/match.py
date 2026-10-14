@@ -92,6 +92,15 @@ def run_match(
             raise MatchRequestError(str(exc)) from exc
 
 
+def run_match_from_profile(deps: PipelineDeps, profile: Profile, *, k: int = 10) -> HttpMatchResult:
+    """Rescore a stored Profile. Graph JSON path: no extract, no normalize."""
+    k = _require_k(k)
+    with TemporaryDirectory() as tmp:
+        source = Path(tmp) / "profile.json"
+        source.write_text(profile.model_dump_json(), encoding="utf-8")
+        return match_payload(deps, source, k=k)
+
+
 def _require_k(k: int) -> int:
     if k < 1 or k > 120:
         raise MatchRequestError("k must be between 1 and 120.")
