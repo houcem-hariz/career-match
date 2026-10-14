@@ -322,15 +322,15 @@ export default function OffersPage() {
                   <div>
                     {/* Top Row: Company initial & Circular Match Score Gauge */}
                     <div className="flex items-start justify-between gap-3 mb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-purple-100/80 font-black text-purple-700 text-sm group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                      <div className="flex min-w-0 flex-1 items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-purple-100/80 font-black text-purple-700 text-sm group-hover:bg-purple-600 group-hover:text-white transition-colors">
                           {companyInitial}
                         </div>
-                        <div className="min-w-0">
-                          <h4 className="text-sm font-bold text-slate-900 group-hover:text-purple-600 transition-colors truncate">
+                        <div className="min-w-0 overflow-hidden">
+                          <h4 className="min-w-0 text-sm font-bold text-slate-900 group-hover:text-purple-600 transition-colors truncate">
                             {card.title}
                           </h4>
-                          <p className="text-xs text-slate-500 truncate">
+                          <p className="min-w-0 text-xs text-slate-500 truncate">
                             {card.company ?? "Verified Partner"} · {formatWorkModel(card.work_model)}
                           </p>
                         </div>
