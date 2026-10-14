@@ -10,10 +10,30 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.datastructures import UploadFile
 
-from career_match.api.match import HttpMatchResult, MatchRequestError, run_match
+from career_match.api.accounts import (
+    Account,
+    AccountStore,
+    AuthError,
+    InMemoryAccountStore,
+    JsonAccountStore,
+    authenticate,
+)
+from career_match.api.match import (
+    HttpMatchResult,
+    MatchRequestError,
+    run_match,
+    run_match_from_profile,
+)
 from career_match.api.openapi import API_DESCRIPTION, MATCH_REQUEST_BODY, install_openapi
-from career_match.api.schemas import CardPayload, ErrorBody, MatchResponse
+from career_match.api.schemas import (
+    AuthCredentials,
+    CardPayload,
+    ErrorBody,
+    MatchResponse,
+    MeResponse,
+)
 from career_match.api.session import COOKIE_NAME, GuestSession, NotFoundError, SessionStore
+from career_match.domain.models.profile import Profile
 from career_match.pipeline.deps import PipelineDeps
 from career_match.pipeline.runtime import build_live_deps, default_data_paths
 from career_match.settings import Settings, get_settings, project_root
@@ -31,6 +51,7 @@ def create_app(
     *,
     examples: dict[str, Path] | None = None,
     store: SessionStore | None = None,
+    accounts: AccountStore | None = None,
 ) -> FastAPI:
     app = FastAPI(title="career-match", version="0.1.0", description=API_DESCRIPTION)
     app.add_middleware(
@@ -43,6 +64,7 @@ def create_app(
     app.state.deps = deps
     app.state.examples = examples or {}
     app.state.store = store or SessionStore()
+    app.state.accounts = accounts or InMemoryAccountStore()
 
     @app.exception_handler(MatchRequestError)
     async def _match_request_error(_request: Request, exc: MatchRequestError) -> JSONResponse:
@@ -52,6 +74,10 @@ def create_app(
     async def _not_found_error(_request: Request, exc: NotFoundError) -> JSONResponse:
         return JSONResponse(status_code=404, content={"detail": str(exc)})
 
+    @app.exception_handler(AuthError)
+    async def _auth_error(_request: Request, exc: AuthError) -> JSONResponse:
+        return JSONResponse(status_code=exc.status_code, content={"detail": str(exc)})
+
     @app.post(
         "/api/match",
         response_model=MatchResponse,
@@ -60,7 +86,8 @@ def create_app(
         summary="Score offers against a profile",
         description=(
             "Send exactly one source: JSON `text`, JSON `example` (`jane_doe_backend`), "
-            "or multipart `cv` (PDF). Stores cards in a guest cookie session."
+            "or multipart `cv` (PDF). Stores cards in a guest cookie session. "
+            "No login required. If the session is logged in, the account snapshot is updated."
         ),
         openapi_extra={"requestBody": MATCH_REQUEST_BODY},
     )
@@ -86,22 +113,156 @@ def create_app(
         response_model=MatchResponse,
         responses={404: {"model": ErrorBody, "description": "No match stored for this session"}},
         tags=["matching"],
-        summary="List scored cards from the guest session",
+        summary="List scored cards from the session",
     )
     async def list_offers(request: Request) -> MatchResponse:
         store_ = cast(SessionStore, request.app.state.store)
-        return store_.require(request.cookies.get(COOKIE_NAME)).to_match_response()
+        return store_.require_cards(request.cookies.get(COOKIE_NAME)).to_match_response()
 
     @app.get(
         "/api/offers/{source_id}",
         response_model=CardPayload,
         responses={404: {"model": ErrorBody, "description": "No session or unknown source_id"}},
         tags=["matching"],
-        summary="One scored card from the guest session",
+        summary="One scored card from the session",
     )
     async def get_offer(source_id: str, request: Request) -> CardPayload:
         store_ = cast(SessionStore, request.app.state.store)
-        return store_.require(request.cookies.get(COOKIE_NAME)).card(source_id)
+        return store_.require_cards(request.cookies.get(COOKIE_NAME)).card(source_id)
+
+    @app.get(
+        "/api/profile",
+        response_model=Profile,
+        responses={404: {"model": ErrorBody, "description": "No profile in this session"}},
+        tags=["profile"],
+        summary="Read the session Profile",
+    )
+    async def get_profile(request: Request) -> Profile:
+        store_ = cast(SessionStore, request.app.state.store)
+        session = store_.require_profile(request.cookies.get(COOKIE_NAME))
+        assert session.profile is not None
+        return session.profile
+
+    @app.put(
+        "/api/profile",
+        response_model=Profile,
+        responses={404: {"model": ErrorBody, "description": "No session"}},
+        tags=["profile"],
+        summary="Replace the session Profile without rescoring",
+        description=(
+            "Full Profile body. Sets `user_edited` and increments `correction_count`. "
+            "Does not run the scorer; call POST /api/rematch afterwards."
+        ),
+    )
+    async def put_profile(payload: Profile, request: Request) -> Profile:
+        store_ = cast(SessionStore, request.app.state.store)
+        session_id = request.cookies.get(COOKIE_NAME)
+        session = store_.require(session_id)
+        previous = session.profile
+        session.profile = payload.model_copy(
+            update={
+                "user_edited": True,
+                "correction_count": (
+                    previous.correction_count if previous is not None else payload.correction_count
+                )
+                + 1,
+                "profile_id": previous.profile_id if previous is not None else payload.profile_id,
+            }
+        )
+        assert session_id is not None
+        store_.put(session_id, session)
+        _persist_account(request, session)
+        return session.profile
+
+    @app.post(
+        "/api/rematch",
+        response_model=MatchResponse,
+        responses={404: {"model": ErrorBody, "description": "No profile in this session"}},
+        tags=["matching"],
+        summary="Rescore the stored Profile",
+        description=(
+            "Writes a temp profile.json and re-enters the graph "
+            "(no extract, no normalize)."
+        ),
+    )
+    async def rematch(
+        request: Request,
+        response: Response,
+        k: int = Query(10, ge=1, le=120, description="Top-k after filters"),
+    ) -> MatchResponse:
+        store_ = cast(SessionStore, request.app.state.store)
+        session = store_.require_profile(request.cookies.get(COOKIE_NAME))
+        assert session.profile is not None
+        result = run_match_from_profile(
+            cast(PipelineDeps, request.app.state.deps),
+            session.profile,
+            k=k,
+        )
+        _save_match(request, response, result)
+        return MatchResponse.model_validate(result.as_payload())
+
+    @app.post(
+        "/api/auth/register",
+        response_model=MeResponse,
+        status_code=201,
+        responses={
+            400: {"model": ErrorBody, "description": "Invalid email or short password"},
+            409: {"model": ErrorBody, "description": "Email already registered"},
+        },
+        tags=["auth"],
+        summary="Create an account and attach the guest Profile",
+    )
+    async def register(body: AuthCredentials, request: Request, response: Response) -> MeResponse:
+        accounts_ = cast(AccountStore, request.app.state.accounts)
+        account = accounts_.create(body.email, body.password)
+        return _bind_account(request, response, account)
+
+    @app.post(
+        "/api/auth/login",
+        response_model=MeResponse,
+        responses={
+            400: {"model": ErrorBody, "description": "Invalid email"},
+            401: {"model": ErrorBody, "description": "Unknown email or bad password"},
+        },
+        tags=["auth"],
+        summary="Log in and attach or hydrate the Profile",
+    )
+    async def login(body: AuthCredentials, request: Request, response: Response) -> MeResponse:
+        accounts_ = cast(AccountStore, request.app.state.accounts)
+        account = authenticate(accounts_, body.email, body.password)
+        return _bind_account(request, response, account)
+
+    @app.post(
+        "/api/auth/logout",
+        status_code=204,
+        tags=["auth"],
+        summary="Clear the account link; keep the guest cards",
+    )
+    async def logout(request: Request) -> Response:
+        store_ = cast(SessionStore, request.app.state.store)
+        session_id = request.cookies.get(COOKIE_NAME)
+        session = store_.get(session_id)
+        if session is not None and session_id is not None:
+            session.user_id = None
+            store_.put(session_id, session)
+        return Response(status_code=204)
+
+    @app.get(
+        "/api/auth/me",
+        response_model=MeResponse,
+        tags=["auth"],
+        summary="Who the session cookie is bound to",
+    )
+    async def me(request: Request) -> MeResponse:
+        store_ = cast(SessionStore, request.app.state.store)
+        accounts_ = cast(AccountStore, request.app.state.accounts)
+        session = store_.get(request.cookies.get(COOKIE_NAME))
+        if session is None or session.user_id is None:
+            return MeResponse(authenticated=False)
+        account = accounts_.get_by_id(session.user_id)
+        if account is None:
+            return MeResponse(authenticated=False)
+        return MeResponse(authenticated=True, email=account.email)
 
     install_openapi(app)
     return app
@@ -110,15 +271,61 @@ def create_app(
 def _save_match(request: Request, response: Response, result: HttpMatchResult) -> None:
     store = cast(SessionStore, request.app.state.store)
     session_id = request.cookies.get(COOKIE_NAME) or store.new_id()
-    store.put(
-        session_id,
-        GuestSession(
-            candidate_count=result.candidate_count,
-            query_from_cache=result.query_from_cache,
-            cards=[CardPayload.model_validate(card) for card in result.cards],
-            profile=result.profile,
-        ),
+    existing = store.get(session_id)
+    session = GuestSession(
+        candidate_count=result.candidate_count,
+        query_from_cache=result.query_from_cache,
+        cards=[CardPayload.model_validate(card) for card in result.cards],
+        profile=result.profile,
+        user_id=existing.user_id if existing is not None else None,
     )
+    store.put(session_id, session)
+    _persist_account(request, session)
+    _set_session_cookie(response, session_id)
+
+
+def _bind_account(request: Request, response: Response, account: Account) -> MeResponse:
+    """In-memory Profile wins; otherwise hydrate from the account snapshot."""
+    session_id, session = _session_or_create(request, response)
+    session.user_id = account.user_id
+    if session.profile is None:
+        session.profile = account.profile
+        session.cards = list(account.cards)
+        session.candidate_count = account.candidate_count
+        session.query_from_cache = account.query_from_cache
+    cast(SessionStore, request.app.state.store).put(session_id, session)
+    _persist_account(request, session)
+    return MeResponse(authenticated=True, email=account.email)
+
+
+def _session_or_create(request: Request, response: Response) -> tuple[str, GuestSession]:
+    store = cast(SessionStore, request.app.state.store)
+    session_id = request.cookies.get(COOKIE_NAME)
+    session = store.get(session_id)
+    if session is not None and session_id is not None:
+        return session_id, session
+    session_id = store.new_id()
+    session = GuestSession(candidate_count=0, query_from_cache=False, cards=[])
+    store.put(session_id, session)
+    _set_session_cookie(response, session_id)
+    return session_id, session
+
+
+def _persist_account(request: Request, session: GuestSession) -> None:
+    if session.user_id is None:
+        return
+    accounts = cast(AccountStore, request.app.state.accounts)
+    account = accounts.get_by_id(session.user_id)
+    if account is None:
+        return
+    account.profile = session.profile
+    account.cards = list(session.cards)
+    account.candidate_count = session.candidate_count
+    account.query_from_cache = session.query_from_cache
+    accounts.put(account)
+
+
+def _set_session_cookie(response: Response, session_id: str) -> None:
     response.set_cookie(
         COOKIE_NAME,
         session_id,
@@ -178,4 +385,5 @@ def create_live_app(settings: Settings | None = None) -> FastAPI:
     )
     jane = project_root() / "data" / "raw" / "cvs" / "jane_doe_backend.pdf"
     examples = {"jane_doe_backend": jane} if jane.is_file() else {}
-    return create_app(deps, examples=examples)
+    accounts_path = project_root() / "data" / "cache" / "accounts.json"
+    return create_app(deps, examples=examples, accounts=JsonAccountStore(accounts_path))

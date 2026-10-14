@@ -128,3 +128,8 @@ Modeles Pydantic (MatchJsonBody, CardPayload, MatchResponse) + requestBody JSON 
 
 **2026-09-27 — Session invite en memoire + GET des cartes.**
 POST /api/match pose un cookie httponly `cm_session` et y range cards + Profile. GET /api/offers et GET /api/offers/{source_id} relisent sans rescoring. Pas d'auth. CORS restreint aux localhost front (credentials). En v2 : Redis / compte.
+
+## Semaine 6
+
+**2026-10-10 — Auth essayer-puis-sauver : le match reste ouvert, le compte ne persiste que le Profile.**
+Invité : POST /api/match sans compte. Register/login attache le Profile en session (la RAM gagne) ou rehydrate depuis le compte. Un compte = un profil. PUT /api/profile corrige sans rescoring ; POST /api/rematch relance le graphe via un JSON Profile temporaire. Mots de passe pbkdf2 ; store injectable (InMemory en tests, JSON gitignore en live). Les offres restent partagées. En v2 : Redis, reset password, OAuth.
