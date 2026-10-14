@@ -1,20 +1,28 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  getMe,
+  login as apiLogin,
+  logout as apiLogout,
+  register as apiRegister,
+} from "@/lib/api";
 
 export interface User {
-  id: string;
-  name: string;
   email: string;
-  avatarUrl?: string;
-  role?: string;
+  name: string;
 }
 
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
-  login: (email: string, name?: string) => void;
-  logout: () => void;
+  /** Throws ApiError (401 bad credentials, 400 invalid email). */
+  login: (email: string, password: string) => Promise<void>;
+  /** Throws ApiError (409 already registered, 400 short password). */
+  register: (email: string, password: string) => Promise<void>;
+  logout: () => Promise<void>;
+  /** Bumped after login/register: the session may have been hydrated from the account. */
+  sessionVersion: number;
   openLoginModal: () => void;
   closeLoginModal: () => void;
   isLoginModalOpen: boolean;
@@ -22,53 +30,45 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const STORAGE_KEY = "career_match_auth_user";
+function toUser(email: string | null): User | null {
+  if (!email) return null;
+  return { email, name: email.split("@")[0] || email };
+}
 
+/**
+ * The backend binds the account to the `cm_session` cookie, so the source of
+ * truth is GET /api/auth/me — nothing is kept in localStorage.
+ */
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [sessionVersion, setSessionVersion] = useState(0);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setUser(JSON.parse(stored));
-      }
-    } catch {
-      // ignore
-    }
-    setIsInitialized(true);
+    getMe()
+      .then((me) => setUser(me.authenticated ? toUser(me.email) : null))
+      .catch(() => setUser(null));
   }, []);
 
-  const login = (email: string, name?: string) => {
-    const displayName = name || email.split("@")[0] || "User";
-    const newUser: User = {
-      id: "usr_" + Math.random().toString(36).substring(2, 9),
-      email,
-      name: displayName,
-      role: "Candidate",
-    };
-    setUser(newUser);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
-    } catch {
-      // ignore
-    }
-    setIsLoginModalOpen(false);
-  };
+  const login = useCallback(async (email: string, password: string) => {
+    const me = await apiLogin(email, password);
+    setUser(toUser(me.email));
+    setSessionVersion((v) => v + 1);
+  }, []);
 
-  const logout = () => {
-    setUser(null);
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // ignore
-    }
-  };
+  const register = useCallback(async (email: string, password: string) => {
+    const me = await apiRegister(email, password);
+    setUser(toUser(me.email));
+    setSessionVersion((v) => v + 1);
+  }, []);
 
-  const openLoginModal = () => setIsLoginModalOpen(true);
-  const closeLoginModal = () => setIsLoginModalOpen(false);
+  const logout = useCallback(async () => {
+    try {
+      await apiLogout();
+    } finally {
+      setUser(null);
+    }
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -76,9 +76,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         user,
         isAuthenticated: !!user,
         login,
+        register,
         logout,
-        openLoginModal,
-        closeLoginModal,
+        sessionVersion,
+        openLoginModal: () => setIsLoginModalOpen(true),
+        closeLoginModal: () => setIsLoginModalOpen(false),
         isLoginModalOpen,
       }}
     >

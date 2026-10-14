@@ -5,8 +5,16 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { useAuth } from "@/context/auth-context";
-import { listOffers, type CardPayload, type MatchResponse } from "@/lib/api";
 import {
+  ApiError,
+  getProfile,
+  listOffers,
+  type CardPayload,
+  type MatchResponse,
+  type Profile,
+} from "@/lib/api";
+import {
+  SENIORITY_LABELS,
   bucketLabel,
   bucketStyles,
   formatWorkModel,
@@ -19,35 +27,40 @@ import {
   Search,
   Sparkles,
   Info,
-  CheckCircle2,
-  AlertTriangle,
   Bookmark,
-  Building2,
-  MapPin,
-  TrendingUp,
 } from "lucide-react";
 
 type BucketFilter = "all" | "eligible" | "reachable" | "out_of_reach";
 
 export default function OffersPage() {
   const router = useRouter();
-  const { user } = useAuth();
+  const { sessionVersion } = useAuth();
   const [data, setData] = useState<MatchResponse | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<BucketFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [savedIds, setSavedIds] = useState<string[]>([]);
 
   useEffect(() => {
-    listOffers().then((result) => {
-      if (!result) {
-        router.replace("/");
-        return;
-      }
-      setData(result);
-      setLoading(false);
-    });
-  }, [router]);
+    Promise.all([listOffers(), getProfile().catch(() => null)])
+      .then(([result, sessionProfile]) => {
+        if (!result) {
+          router.replace("/");
+          return;
+        }
+        setData(result);
+        setProfile(sessionProfile);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoadError(
+          err instanceof ApiError ? err.message : "Could not reach the backend. Is it running?"
+        );
+        setLoading(false);
+      });
+  }, [router, sessionVersion]);
 
   const toggleSave = (sourceId: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -108,9 +121,31 @@ export default function OffersPage() {
     );
   }
 
-  const candidateName = user ? user.name : "Jane Doe";
-  const totalCards = data!.cards.length;
-  const bestCard = data!.cards[0];
+  if (loadError || !data) {
+    return (
+      <div className="min-h-screen bg-[#fafaf8]">
+        <Navbar />
+        <main className="mx-auto max-w-md px-6 py-20 text-center">
+          <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6 text-xs font-medium text-rose-800">
+            {loadError ?? "No offers in this session."}
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  const candidateName = profile?.first_name ?? null;
+  const profileLine = profile
+    ? [
+        SENIORITY_LABELS[profile.seniority],
+        profile.target_families.map(formatFamily).join(", "),
+        profile.preferences.work_models.map(formatWorkModel).join(", "),
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : null;
+  const totalCards = data.cards.length;
+  const bestCard = data.cards[0];
 
   return (
     <div className="min-h-screen bg-[#fafaf8] text-slate-900">
@@ -122,7 +157,7 @@ export default function OffersPage() {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-2xl font-black tracking-tight text-slate-950">
-                Hello {candidateName}
+                {candidateName ? `Hello ${candidateName}` : "Your matches"}
               </h1>
               <span className="inline-flex items-center gap-1 rounded-full bg-purple-100/80 px-2.5 py-0.5 text-xs font-bold text-purple-800">
                 <Sparkles className="h-3 w-3 text-purple-600" />
@@ -130,8 +165,8 @@ export default function OffersPage() {
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              Top-{totalCards} opportunities from {data!.candidate_count} eligible roles evaluated
-              in this session.
+              {profileLine ? `${profileLine} · ` : ""}Top-{totalCards} of {data.candidate_count}{" "}
+              offers that passed your filters.
             </p>
           </div>
 
