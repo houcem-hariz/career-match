@@ -51,8 +51,8 @@ uv run python -m career_match.cli.serve
 - [x] Semaine 2 : normalisation, indexation pgvector, recherche hybride, couche agnostique
 - [x] Semaine 3 : scoring, paniers, écarts, simulation (jalon pivot : chaîne complète en CLI)
 - [x] Semaine 4 : pipeline LangGraph, serveur et client MCP
-- [ ] Semaine 5 : API, front, écran offres/détail
-- [ ] Semaine 6 : écran profil, chat, agent conversationnel
+- [x] Semaine 5 : API, front, écran offres/détail
+- [x] Semaine 6 : écran profil, chat, agent conversationnel
 - [ ] Semaine 7 : n8n, jeu de cas annoté, seconde passe scoring
 - [ ] Semaine 8 : rapport, démo
 
