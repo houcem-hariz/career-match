@@ -91,3 +91,21 @@ class AuthCredentials(BaseModel):
 class MeResponse(BaseModel):
     authenticated: bool
     email: str | None = None
+
+
+class ChatRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    message: str = Field(min_length=1, description="User question about the current match.")
+    source_id: str | None = Field(
+        default=None,
+        description="Offer the user is looking at. Optional hint for the agent.",
+    )
+
+
+class ChatResponse(BaseModel):
+    reply: str
+    tools_used: list[str] = Field(
+        default_factory=list,
+        description="MCP-style tools the agent called. Scores still come from those tools.",
+    )

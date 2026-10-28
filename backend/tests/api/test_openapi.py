@@ -36,9 +36,12 @@ def test_openapi_documents_json_and_pdf_bodies(tmp_path: Path) -> None:
     assert spec["paths"]["/api/auth/login"]["post"]["responses"]["200"]
     assert spec["paths"]["/api/auth/logout"]["post"]["responses"]["204"]
     assert spec["paths"]["/api/auth/me"]["get"]["responses"]["200"]
+    assert spec["paths"]["/api/chat"]["post"]["responses"]["200"]
     assert "AuthCredentials" in schemas
     assert "MeResponse" in schemas
     assert "Profile" in schemas
+    assert "ChatRequest" in schemas
+    assert "ChatResponse" in schemas
 
 
 def test_docs_ui_is_served(tmp_path: Path) -> None:

@@ -287,3 +287,25 @@ export async function getMe(): Promise<MeResponse> {
   if (!res.ok) return { authenticated: false, email: null };
   return res.json();
 }
+
+export interface ChatResponse {
+  reply: string;
+  tools_used: string[];
+}
+
+export async function postChat(message: string, sourceId?: string | null): Promise<ChatResponse> {
+  const res = await fetch(`/api/chat`, {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message,
+      ...(sourceId ? { source_id: sourceId } : {}),
+    }),
+  });
+  if (!res.ok) {
+    const msg = await extractErrorMessage(res);
+    throw new ApiError(res.status, msg);
+  }
+  return res.json();
+}
