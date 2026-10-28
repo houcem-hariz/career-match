@@ -1,0 +1,81 @@
+{
+  "name": "career-match Jane match digest",
+  "meta": {
+    "description": "Calls POST /api/match. Does not compute a score."
+  },
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "When clicking Test workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/api/match?k=10",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"example\": \"jane_doe_backend\",\n  \"k\": 10\n}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "http-match",
+      "name": "POST /api/match",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json;\nconst cards = Array.isArray(body.cards) ? body.cards : [];\nconst count = (bucket) => cards.filter((card) => card.bucket === bucket).length;\nreturn [{\n  json: {\n    candidate_count: body.candidate_count ?? cards.length,\n    returned: cards.length,\n    eligible: count('eligible'),\n    reachable: count('reachable'),\n    out_of_reach: count('out_of_reach'),\n    top: cards[0]\n      ? `${cards[0].title} · ${cards[0].bucket} · ${cards[0].score}`\n      : null,\n  },\n}];"
+      },
+      "id": "count-buckets",
+      "name": "Count buckets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 300]
+    }
+  ],
+  "connections": {
+    "When clicking Test workflow": {
+      "main": [
+        [
+          {
+            "node": "POST /api/match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "POST /api/match": {
+      "main": [
+        [
+          {
+            "node": "Count buckets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

@@ -1,13 +1,13 @@
 {
   "weights": {
-    "mandatory_skills": 0.35,
+    "mandatory_skills": 0.4,
     "preferred_skills": 0.15,
     "seniority": 0.15,
     "education": 0.1,
     "languages": 0.05,
-    "semantic": 0.2
+    "semantic": 0.15
   },
-  "max_mandatory_gaps_reachable": 2,
+  "max_mandatory_gaps_reachable": 3,
   "min_seniority_gap_eligible": -1,
   "min_seniority_gap_reachable": -2,
   "out_of_reach_seniority_gap": -3

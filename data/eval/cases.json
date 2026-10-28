@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "notes": "Gold buckets for score_offer. Retrieval filters are not applied. Similarity is ignored by assign_bucket.",
+  "similarity": 0.5,
+  "cases": [
+    {
+      "id": "jane-python-only",
+      "profile_id": "jane_backend",
+      "source_id": "nextgig-50613d2f6f72",
+      "expected_bucket": "eligible",
+      "rationale": "Only python is mandatory; Jane has it at proficient. Seniority matches."
+    },
+    {
+      "id": "jane-ai-research-two-gaps",
+      "profile_id": "jane_backend",
+      "source_id": "nextgig-c83a60084f38",
+      "expected_bucket": "reachable",
+      "rationale": "Has python; missing machine_learning and cpp. Two mandatory gaps, seniority above mid."
+    },
+    {
+      "id": "jane-distributed-backend-three-gaps",
+      "profile_id": "jane_backend",
+      "source_id": "nextgig-bd2c5fe13dad",
+      "expected_bucket": "reachable",
+      "rationale": "Has aws and kubernetes; missing azure, java, go. Three gaps is a course path, not a wall. Week-7 pass: max_mandatory_gaps_reachable 2 to 3."
+    },
+    {
+      "id": "jane-fullstack-five-gaps",
+      "profile_id": "jane_backend",
+      "source_id": "nextgig-73fe840f52fa",
+      "expected_bucket": "out_of_reach",
+      "rationale": "React/Java/Kafka/Node stack. Five mandatory gaps: not a backend match."
+    },
+    {
+      "id": "jane-distinguished-lead",
+      "profile_id": "jane_backend",
+      "source_id": "nextgig-463daf47db7b",
+      "expected_bucket": "out_of_reach",
+      "rationale": "Lead distinguished role plus five infra mandatories Jane does not have."
+    },
+    {
+      "id": "maya-empty-mandatories",
+      "profile_id": "maya_frontend",
+      "source_id": "nextgig-d17f88214d42",
+      "expected_bucket": "eligible",
+      "rationale": "Sidecar resolved to no mandatory skills; mid seniority matches."
+    },
+    {
+      "id": "maya-frontend-core",
+      "profile_id": "maya_frontend",
+      "source_id": "nextgig-63768a57c5a0",
+      "expected_bucket": "reachable",
+      "rationale": "Has react, typescript, nextjs; missing nodejs and testing."
+    },
+    {
+      "id": "maya-senior-frontend",
+      "profile_id": "maya_frontend",
+      "source_id": "nextgig-7a626854bc18",
+      "expected_bucket": "reachable",
+      "rationale": "Mid vs senior (gap -1) and one missing mandatory (performance_optimization)."
+    },
+    {
+      "id": "maya-infra-not-frontend",
+      "profile_id": "maya_frontend",
+      "source_id": "nextgig-0e5e12a56f03",
+      "expected_bucket": "out_of_reach",
+      "rationale": "Family is tagged frontend but mandatories are CI/Azure/ML. Five gaps."
+    },
+    {
+      "id": "leo-empty-data-engineer",
+      "profile_id": "leo_data",
+      "source_id": "nextgig-668b323ac1a9",
+      "expected_bucket": "eligible",
+      "rationale": "No resolved mandatories; junior vs mid is gap -1, still eligible."
+    },
+    {
+      "id": "leo-senior-ds-three-gaps",
+      "profile_id": "leo_data",
+      "source_id": "nextgig-239bda7c0a8d",
+      "expected_bucket": "reachable",
+      "rationale": "Has python and sql; missing spark, databricks, nlp. Seniority gap -2 is the reachable floor."
+    },
+    {
+      "id": "leo-vs-backend-lead",
+      "profile_id": "leo_data",
+      "source_id": "nextgig-463daf47db7b",
+      "expected_bucket": "out_of_reach",
+      "rationale": "Junior vs lead: seniority gap -3, the hard out_of_reach rule. Skills do not matter."
+    }
+  ]
+}

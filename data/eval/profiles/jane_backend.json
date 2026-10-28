@@ -1,0 +1,14 @@
+{
+  "profile_id": "jane_backend",
+  "target_title": "Senior Backend Engineer",
+  "target_families": ["backend"],
+  "total_years_experience": 6,
+  "seniority": 3,
+  "skills": [
+    {"skill_id": "python", "level": 3},
+    {"skill_id": "kubernetes", "level": 2},
+    {"skill_id": "postgresql", "level": 2},
+    {"skill_id": "aws", "level": 2},
+    {"skill_id": "docker", "level": 2}
+  ]
+}

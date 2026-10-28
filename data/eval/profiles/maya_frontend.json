@@ -1,0 +1,13 @@
+{
+  "profile_id": "maya_frontend",
+  "target_title": "Frontend Developer",
+  "target_families": ["frontend"],
+  "total_years_experience": 4,
+  "seniority": 2,
+  "skills": [
+    {"skill_id": "react", "level": 3},
+    {"skill_id": "typescript", "level": 2},
+    {"skill_id": "nextjs", "level": 2},
+    {"skill_id": "javascript", "level": 2}
+  ]
+}

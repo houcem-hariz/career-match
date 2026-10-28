@@ -136,3 +136,14 @@ Invité : POST /api/match sans compte. Register/login attache le Profile en sess
 
 **2026-10-14 — Chat agent : LLM + outils de session, zero nouveau score.**
 POST /api/chat lit le cookie, pas le CV. Les outils exposent cartes / profil / simulate_course (mêmes corps que le MCP). Le modèle n'a le droit de citer que le JSON outils. Client injectable (scripté en tests, ChatOpenAI en live). En v2 : streaming, historique long.
+
+## Semaine 7
+
+**2026-10-28 — Jeu annoté de 12 paires, panier d'or, pas de score cible.**
+Trois profils figés (Jane backend, Maya frontend, Leo data) contre des offres du corpus. Le runner appelle score_offer ; les filtres de retrieval sont hors scope. Raison : le probabiliste à mesurer ici est surtout la politique de paniers face à un sidecar à 5 mandatory. En v2 : annoter aussi l'extraction LLM.
+
+**2026-10-28 — Seconde passe : reachable jusqu'à 3 mandatory manquantes.**
+Le cap d'extraction d'offre pose 5 compétences mandatory. Avec max=2, Jane + Senior Backend (aws/k8s ok, azure/java/go manquent) tombait en out_of_reach. max_mandatory_gaps_reachable=3 ; poids semantic 0.20→0.15, mandatory 0.35→0.40. DEFAULT_SCORING_CONFIG inchangé (semaine 3). En v2 : calibrer le cap mandatory du sidecar.
+
+**2026-10-28 — n8n consomme POST /api/match, ne score pas.**
+Workflow importable : trigger manuel → HTTP Jane Doe → décompte des paniers. En v2 : cron + notification mail.
