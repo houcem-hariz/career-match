@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { getOffer, listOffers } from "@/lib/api";
-import { answer, suggestions, type ChatContext } from "@/lib/chat";
-import { MessageCircle, Send, X } from "lucide-react";
+import { ApiError, getOffer, listOffers, postChat } from "@/lib/api";
+import { suggestions, type ChatContext } from "@/lib/chat";
+import { Loader2, MessageCircle, Send, X } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -17,13 +17,13 @@ export function ChatDrawer({ open, onClose }: { open: boolean; onClose: () => vo
   const [ctx, setCtx] = useState<ChatContext>({ offers: null, card: null });
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
 
   const sourceId = pathname.startsWith("/offers/")
     ? decodeURIComponent(pathname.slice("/offers/".length))
     : null;
 
-  // Reload the context each time the drawer opens, so it follows the page.
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
@@ -41,17 +41,24 @@ export function ChatDrawer({ open, onClose }: { open: boolean; onClose: () => vo
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, loading]);
 
-  function send(text: string) {
+  async function send(text: string) {
     const question = text.trim();
-    if (!question) return;
-    setMessages((prev) => [
-      ...prev,
-      { role: "user", text: question },
-      { role: "assistant", text: answer(question, ctx) },
-    ]);
+    if (!question || loading) return;
+    setMessages((prev) => [...prev, { role: "user", text: question }]);
     setInput("");
+    setLoading(true);
+    try {
+      const { reply } = await postChat(question, sourceId);
+      setMessages((prev) => [...prev, { role: "assistant", text: reply }]);
+    } catch (err) {
+      const detail =
+        err instanceof ApiError ? err.message : "Chat failed. Is the API running with a chat model?";
+      setMessages((prev) => [...prev, { role: "assistant", text: detail }]);
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (!open) return null;
@@ -82,15 +89,15 @@ export function ChatDrawer({ open, onClose }: { open: boolean; onClose: () => vo
         {messages.length === 0 && (
           <div className="space-y-3">
             <p className="text-xs text-slate-500">
-              Ask about your matched offers. Answers come from your session scores, gaps and
-              course simulations.
+              Ask about your matched offers. The agent reads your session scores, gaps and
+              course simulations — it does not invent a score.
             </p>
             <div className="flex flex-col gap-2">
               {suggestions(ctx).map((question) => (
                 <button
                   key={question}
                   type="button"
-                  onClick={() => send(question)}
+                  onClick={() => void send(question)}
                   className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-left text-xs font-medium text-slate-700 hover:border-purple-300 hover:text-purple-700 transition-colors"
                 >
                   {question}
@@ -112,13 +119,19 @@ export function ChatDrawer({ open, onClose }: { open: boolean; onClose: () => vo
             {message.text}
           </div>
         ))}
+        {loading && (
+          <div className="mr-8 flex items-center gap-2 rounded-2xl border border-purple-200 bg-white px-3.5 py-2.5 text-xs text-slate-500">
+            <Loader2 className="h-3.5 w-3.5 animate-spin" />
+            Looking up your session…
+          </div>
+        )}
         <div ref={endRef} />
       </div>
 
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          send(input);
+          void send(input);
         }}
         className="flex items-center gap-2 border-t border-slate-200 bg-white px-4 py-3"
       >
@@ -126,11 +139,12 @@ export function ChatDrawer({ open, onClose }: { open: boolean; onClose: () => vo
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Your message..."
+          disabled={loading}
           className="flex-1 rounded-xl border border-slate-200 bg-[#fafaf8] px-3 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/10"
         />
         <button
           type="submit"
-          disabled={!input.trim()}
+          disabled={!input.trim() || loading}
           className="rounded-xl bg-purple-600 p-2 text-white hover:bg-purple-700 disabled:opacity-40"
           aria-label="Send"
         >

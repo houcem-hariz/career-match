@@ -133,3 +133,6 @@ POST /api/match pose un cookie httponly `cm_session` et y range cards + Profile.
 
 **2026-10-10 — Auth essayer-puis-sauver : le match reste ouvert, le compte ne persiste que le Profile.**
 Invité : POST /api/match sans compte. Register/login attache le Profile en session (la RAM gagne) ou rehydrate depuis le compte. Un compte = un profil. PUT /api/profile corrige sans rescoring ; POST /api/rematch relance le graphe via un JSON Profile temporaire. Mots de passe pbkdf2 ; store injectable (InMemory en tests, JSON gitignore en live). Les offres restent partagées. En v2 : Redis, reset password, OAuth.
+
+**2026-10-14 — Chat agent : LLM + outils de session, zero nouveau score.**
+POST /api/chat lit le cookie, pas le CV. Les outils exposent cartes / profil / simulate_course (mêmes corps que le MCP). Le modèle n'a le droit de citer que le JSON outils. Client injectable (scripté en tests, ChatOpenAI en live). En v2 : streaming, historique long.

@@ -31,6 +31,7 @@ A cookie (`cm_session`) stores cards + Profile in RAM. Then:
 - `GET /api/profile` / `PUT /api/profile` — read or correct; PUT does not rescore
 - `POST /api/rematch` — rescore the stored Profile (graph JSON path)
 - `POST /api/auth/register` · `login` · `logout` · `GET /api/auth/me`
+- `POST /api/chat` — agent on the session cards; tools wrap MCP (`simulate_course`), no new score
 
 On register/login, an in-memory Profile wins and is copied onto the account.
 If the guest has none, the session is hydrated from the account snapshot.

@@ -5,11 +5,12 @@ from __future__ import annotations
 from pathlib import Path
 from typing import cast
 
-from fastapi import FastAPI, Query, Request, Response
+from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.datastructures import UploadFile
 
+from career_match.adapters.llm.factory import build_chat_llm
 from career_match.api.accounts import (
     Account,
     AccountStore,
@@ -18,6 +19,7 @@ from career_match.api.accounts import (
     JsonAccountStore,
     authenticate,
 )
+from career_match.api.chat import ChatClient, LangchainChatClient, run_session_chat
 from career_match.api.match import (
     HttpMatchResult,
     MatchRequestError,
@@ -28,6 +30,8 @@ from career_match.api.openapi import API_DESCRIPTION, MATCH_REQUEST_BODY, instal
 from career_match.api.schemas import (
     AuthCredentials,
     CardPayload,
+    ChatRequest,
+    ChatResponse,
     ErrorBody,
     MatchResponse,
     MeResponse,
@@ -52,6 +56,7 @@ def create_app(
     examples: dict[str, Path] | None = None,
     store: SessionStore | None = None,
     accounts: AccountStore | None = None,
+    chat_client: ChatClient | None = None,
 ) -> FastAPI:
     app = FastAPI(title="career-match", version="0.1.0", description=API_DESCRIPTION)
     app.add_middleware(
@@ -65,6 +70,7 @@ def create_app(
     app.state.examples = examples or {}
     app.state.store = store or SessionStore()
     app.state.accounts = accounts or InMemoryAccountStore()
+    app.state.chat_client = chat_client
 
     @app.exception_handler(MatchRequestError)
     async def _match_request_error(_request: Request, exc: MatchRequestError) -> JSONResponse:
@@ -264,6 +270,39 @@ def create_app(
             return MeResponse(authenticated=False)
         return MeResponse(authenticated=True, email=account.email)
 
+    @app.post(
+        "/api/chat",
+        response_model=ChatResponse,
+        responses={
+            400: {"model": ErrorBody, "description": "Empty message"},
+            404: {"model": ErrorBody, "description": "No match in this session"},
+            503: {"model": ErrorBody, "description": "Chat model is not configured"},
+        },
+        tags=["chat"],
+        summary="Ask about the current match",
+        description=(
+            "Agent over the session cards. It calls the same simulate_course / card "
+            "payloads as MCP. It does not compute a new score."
+        ),
+    )
+    async def chat(body: ChatRequest, request: Request) -> ChatResponse:
+        message = body.message.strip()
+        if not message:
+            raise HTTPException(status_code=400, detail="message is required.")
+        client = cast(ChatClient | None, getattr(request.app.state, "chat_client", None))
+        if client is None:
+            raise HTTPException(status_code=503, detail="Chat model is not configured.")
+        store_ = cast(SessionStore, request.app.state.store)
+        session = store_.require_cards(request.cookies.get(COOKIE_NAME))
+        outcome = run_session_chat(
+            cast(PipelineDeps, request.app.state.deps),
+            session,
+            message=message,
+            source_id=body.source_id,
+            client=client,
+        )
+        return ChatResponse(reply=outcome.reply, tools_used=outcome.tools_used)
+
     install_openapi(app)
     return app
 
@@ -386,4 +425,9 @@ def create_live_app(settings: Settings | None = None) -> FastAPI:
     jane = project_root() / "data" / "raw" / "cvs" / "jane_doe_backend.pdf"
     examples = {"jane_doe_backend": jane} if jane.is_file() else {}
     accounts_path = project_root() / "data" / "cache" / "accounts.json"
-    return create_app(deps, examples=examples, accounts=JsonAccountStore(accounts_path))
+    return create_app(
+        deps,
+        examples=examples,
+        accounts=JsonAccountStore(accounts_path),
+        chat_client=LangchainChatClient(build_chat_llm(settings)),
+    )

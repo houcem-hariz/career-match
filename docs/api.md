@@ -14,3 +14,5 @@ Puis, sans recalcul : `GET /api/offers` (liste) et `GET /api/offers/{source_id}`
 Profil : `GET /api/profile`, `PUT /api/profile` (correction, pas de rescoring). Recalcul : `POST /api/rematch`.
 
 Auth essayer-puis-sauver : `POST /api/auth/register`, `POST /api/auth/login`, `POST /api/auth/logout`, `GET /api/auth/me`. Un compte = un profil. La session en RAM gagne à la connexion.
+
+Chat : `POST /api/chat`. Agent sur les cartes de session ; les outils reprennent le MCP (`simulate_course`). Pas de nouveau score.
