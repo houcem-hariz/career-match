@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>career-match — soutenance</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --slide: #171a22;
+      --text: #f4f4f1;
+      --muted: #9aa0ad;
+      --line: #2a2f3b;
+      --accent: #7c6cff;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    .deck { height: 100%; overflow: hidden; }
+    .slide {
+      display: none;
+      height: 100%;
+      padding: 7vh 8vw 10vh;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        radial-gradient(900px 400px at 100% 0%, rgba(124, 108, 255, 0.12), transparent 50%),
+        var(--slide);
+    }
+    .slide.on { display: flex; }
+    .kicker {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.7rem;
+      font-weight: 700;
+    }
+    h1, h2 { margin: 0 0 1.2rem; line-height: 1.15; font-weight: 750; }
+    h1 { font-size: clamp(2.1rem, 4.5vw, 3.4rem); }
+    h2 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); }
+    p, li { font-size: clamp(1.05rem, 1.7vw, 1.35rem); line-height: 1.45; color: var(--text); }
+    .lead { color: var(--muted); max-width: 42rem; }
+    ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+    li { margin: 0.45rem 0; }
+    li strong { color: #fff; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem 2.2rem;
+      margin-top: 0.6rem;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem 1.15rem;
+      background: rgba(255,255,255,0.03);
+    }
+    .card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .card p, .card li { font-size: 1.05rem; margin: 0.25rem 0; }
+    .mono {
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.92em;
+      color: #c8c4ff;
+    }
+    .quote {
+      font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+      line-height: 1.35;
+      max-width: 40rem;
+    }
+    .bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: linear-gradient(transparent, rgba(0,0,0,0.45));
+    }
+    .progress {
+      position: absolute;
+      left: 0; bottom: 0;
+      height: 3px;
+      background: var(--accent);
+      width: 0;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      align-items: center;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.95rem;
+    }
+    .pill.dim { color: var(--muted); }
+    .arrow { color: var(--accent); font-weight: 700; }
+    table { border-collapse: collapse; width: min(100%, 52rem); margin-top: 0.8rem; }
+    th, td {
+      text-align: left;
+      padding: 0.45rem 0.7rem;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+    }
+    th { color: var(--muted); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .ok { color: var(--ok); font-weight: 700; }
+    @media print {
+      .slide { display: flex; break-after: page; height: 100vh; }
+      .bar { display: none; }
+    }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide on">
+  <p class="kicker">Soutenance · 8 semaines</p>
+  <h1>career-match</h1>
+  <p class="lead">Apparier un profil candidat à des offres tech, avec un score explicable : six axes, trois paniers, écarts, simulation de formation.</p>
+  <p class="lead" style="margin-top:1.4rem">Le LLM n’invente pas le 0–100.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">1 · Introduction</p>
+  <h2>Pas une barre de recherche d’offres</h2>
+  <ul>
+    <li>Les job boards partent d’un mot-clé : « Dev React Paris ».</li>
+    <li>Quand il y a un score, on ne sait pas <strong>pourquoi</strong> (compétence, séniorité, sémantique…).</li>
+    <li><strong>Ici, on part du profil</strong> : CV, mini-CV, ou exemple Jane Doe.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">1 · Introduction</p>
+  <h2>Contrainte structurante</h2>
+  <p class="quote">Aucun modèle ne calcule le score.</p>
+  <ul>
+    <li>Probabiliste : extraction CV, embeddings.</li>
+    <li>Déterministe : normalisation, filtres, paniers, simulation.</li>
+    <li>Démonstrateur : LLM, RAG, LangGraph, MCP, agent, n8n.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">2 · Problématique</p>
+  <h2>Question</h2>
+  <p class="quote">Comment apparier un profil à 120 offres de façon <em>explicable</em>, sans laisser un LLM inventer un score, en 8 × 14 h ?</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">2 · Périmètre</p>
+  <h2>Chaîne de valeur et corpus</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Produit</h3>
+      <ul>
+        <li>Extract → normalize → retrieve → score</li>
+        <li>6 dimensions, 3 paniers, gaps</li>
+        <li>Catalogue fermé + simulation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Données</h3>
+      <ul>
+        <li>120 offres Multi-ATS, CC BY 4.0</li>
+        <li>20 / famille, max 2 / entreprise</li>
+        <li>154 compétences, min. 3 occurrences</li>
+        <li>Anglais, tech, pas d’OCR</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">3 · Architecture</p>
+  <h2>Couches</h2>
+  <table>
+    <tr><th>Paquet</th><th>Rôle</th></tr>
+    <tr><td class="mono">domain/</td><td>Schémas, normalisation, scoring — stdlib + Pydantic</td></tr>
+    <tr><td class="mono">adapters/</td><td>LLM, embeddings, PDF, pgvector, MCP</td></tr>
+    <tr><td class="mono">pipeline/</td><td>LangGraph : extract → normalize → retrieve → score</td></tr>
+    <tr><td class="mono">api/ · frontend/</td><td>FastAPI façade + Next.js (aucun score inventé)</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <p class="kicker">3 · Architecture</p>
+  <h2>Domain pur</h2>
+  <ul>
+    <li><span class="mono">domain/</span> n’importe ni LangChain, ni Postgres, ni le réseau.</li>
+    <li>Un test d’architecture (AST) le vérifie.</li>
+    <li>Conséquence : scoring testable <strong>sans mock</strong>.</li>
+    <li>Deux couches : <span class="mono">RawProfile</span> (LLM) → <span class="mono">Profile</span> (normalisé, seul scoré).</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">4 · Chaîne</p>
+  <h2>Extract · normalize · retrieve</h2>
+  <div class="flow">
+    <span class="pill">PDF / texte</span><span class="arrow">→</span>
+    <span class="pill">LLM JSON</span><span class="arrow">→</span>
+    <span class="pill">cascade 0.88</span><span class="arrow">→</span>
+    <span class="pill">filtres</span><span class="arrow">→</span>
+    <span class="pill">cosine pgvector</span>
+  </div>
+  <ul>
+    <li>Groq GPT-OSS 20B + cache disque (hash + prompt + modèle).</li>
+    <li>Normalisation : exact, alias, fuzzy — <strong>pas de LLM</strong>.</li>
+    <li>RAG = filtres (famille, remote, lieu) <em>puis</em> similarité. Pas BM25.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">4 · Chaîne</p>
+  <h2>Score, paniers, simulation</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Six axes (somme 1)</h3>
+      <p>mandatory 0,40 · preferred 0,15 · seniority 0,15</p>
+      <p>semantic 0,15 · education 0,10 · languages 0,05</p>
+      <p style="margin-top:0.7rem">Le cosine entre comme un <span class="mono">float</span>. Le domain n’appelle pas pgvector.</p>
+    </div>
+    <div class="card">
+      <h3>Paniers ≠ total /100</h3>
+      <p><strong>eligible</strong> : 0 mandatory manquante</p>
+      <p><strong>reachable</strong> : jusqu’à 3 gaps, séniorité ≥ −2</p>
+      <p><strong>out_of_reach</strong> : séniorité ≤ −3 ou trop de gaps</p>
+      <p style="margin-top:0.7rem">Cours = clone du profil, re-score. Catalogue fermé.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">5 · Rôles de l’IA</p>
+  <h2>Deux modèles, un agent</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Modèles</h3>
+      <p><strong>LLM</strong> : extraire le RawProfile (et le référentiel, hors ligne).</p>
+      <p><strong>Embeddings</strong> : vecteurs pour le cosine.</p>
+      <p>Ni l’un ni l’autre ne choisit le panier.</p>
+    </div>
+    <div class="card">
+      <h3>Agent chat</h3>
+      <p><span class="mono">POST /api/chat</span> : outils sur la session déjà scorée.</p>
+      <p>Cartes, profil, <span class="mono">simulate_course</span>.</p>
+      <p>Il <strong>explique</strong>. Il n’invente pas un 0–100.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">5 · Rôles de l’IA</p>
+  <h2>MCP et orchestrateurs</h2>
+  <ul>
+    <li><strong>MCP</strong> : 5 outils stdio, mêmes corps que le pipeline. Le client <em>découvre</em> les outils (process séparé).</li>
+    <li><strong>LangGraph</strong> : enchaîne les nœuds. Un branchement PDF / JSON. Ne calcule pas le score.</li>
+    <li><strong>n8n</strong> : appelle <span class="mono">POST /api/match</span>, compte les paniers. Zéro inférence.</li>
+  </ul>
+  <p class="lead" style="margin-top:1.2rem">Le LLM structure · l’embedder rapproche · l’agent explique · le domain décide.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">6 · Application</p>
+  <h2>API : façade, pas un second scorer</h2>
+  <ul>
+    <li><span class="mono">POST /api/match</span> : PDF <em>ou</em> texte <em>ou</em> exemple Jane Doe.</li>
+    <li>Cookie <span class="mono">cm_session</span> : cartes en RAM, pas de rescoring aux GET.</li>
+    <li><span class="mono">PUT /api/profile</span> corrige sans graphe ; <span class="mono">POST /api/rematch</span> à part.</li>
+    <li>OpenAPI = contrat (<span class="mono">/docs</span>).</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">6 · Application</p>
+  <h2>Essayer puis sauver</h2>
+  <ul>
+    <li>Le match est ouvert <strong>sans compte</strong>.</li>
+    <li>Le compte (email + mot de passe, pbkdf2) ne fait que <strong>persister le Profile</strong>.</li>
+    <li>À la connexion, la session en RAM gagne ; sinon rehydratation JSON.</li>
+    <li>Front Next.js : accueil → 3 paniers → fiche (6 barres, gaps, simulation) → profil → chat.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <p class="kicker">7 · Évaluation</p>
+  <h2>12 cas or, pas un score cible</h2>
+  <ul>
+    <li>Jane backend · Maya frontend · Leo data × offres du corpus.</li>
+    <li>Un <strong>panier attendu</strong> par paire. Runner = <span class="mono">score_offer</span> (pas de LLM, pas de Postgres).</li>
+    <li>Les filtres de retrieval sont hors scope : on juge la politique de paniers.</li>
+  </ul>
+  <p class="ok" style="margin-top:1.2rem;font-size:1.6rem">12 / 12 après la seconde passe</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">7 · Évaluation</p>
+  <h2>Seconde passe (scoring.json)</h2>
+  <ul>
+    <li>Sidecar d’offre : souvent <strong>5 compétences mandatory</strong>.</li>
+    <li><span class="mono">max_mandatory_gaps_reachable</span> : 2 → <strong>3</strong>.</li>
+    <li>Poids semantic 0,20 → 0,15 · mandatory 0,35 → 0,40.</li>
+    <li>Exemple : Jane + backend aws/k8s (manque azure, java, go) : mur → <strong>reachable</strong>.</li>
+  </ul>
+  <p class="lead" style="margin-top:1rem">On n’a pas réécrit <span class="mono">score.py</span>. Le défaut Python semaine 3 reste pour les tests unitaires.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">8 · Démonstration</p>
+  <h2>Cinq scènes (~8–10 min)</h2>
+  <ol>
+    <li>Invité, Jane Doe → trois paniers.</li>
+    <li>Fiche reachable / out_of_reach : axes, gaps, simulation.</li>
+    <li>Profil : Save sans rescoring, puis Recalculer.</li>
+    <li>Compte : le match n’était pas un paywall.</li>
+    <li>Chat : « why » / « which course » — chiffres issus des outils.</li>
+  </ol>
+  <p class="lead" style="margin-top:1rem">Toujours <span class="mono">localhost:3000</span>. Filet chat : Swagger <span class="mono">tools_used</span>.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">9 · Limites</p>
+  <h2>Choix, pas des oublis</h2>
+  <table>
+    <tr><th>Aujourd’hui</th><th>V2</th></tr>
+    <tr><td>Pas d’OCR, anglais, tech only</td><td>Multilingue, scans</td></tr>
+    <tr><td>Référentiel corpus (154)</td><td>ESCO / O*NET</td></tr>
+    <tr><td>Session RAM + JSON comptes</td><td>Redis, OAuth</td></tr>
+    <tr><td>12 cas, politique de paniers</td><td>Annoter l’extraction LLM</td></tr>
+    <tr><td>Chat sans mémoire longue</td><td>Streaming, historique</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <p class="kicker">10 · Conclusion</p>
+  <h2>Ce qu’on a montré</h2>
+  <ul>
+    <li>Une chaîne complète, jalon pivot dès la CLI semaine 3.</li>
+    <li>Les semaines 4–8 <strong>n’ont pas réécrit le score</strong> : elles l’exposent, l’évaluent, le racontent.</li>
+    <li>Séparation nette : incertain (extract, embeddings) / justiciable (paniers, simulation).</li>
+  </ul>
+  <p class="quote" style="margin-top:1.6rem">Le modèle structure. Le domain décide.</p>
+</section>
+
+</div>
+<div class="bar">
+  <span>career-match</span>
+  <span id="pos">1 / 1</span>
+  <span>← → · Espace</span>
+  <div class="progress" id="bar"></div>
+</div>
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle("on", k === i));
+    document.getElementById("pos").textContent = (i + 1) + " / " + slides.length;
+    document.getElementById("bar").style.width = ((i + 1) / slides.length * 100) + "%";
+  }
+  document.addEventListener("keydown", (e) => {
+    if (["ArrowRight", "PageDown", " ", "Enter"].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (["ArrowLeft", "PageUp", "Backspace"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === "Home") show(0);
+    if (e.key === "End") show(slides.length - 1);
+  });
+  document.getElementById("deck").addEventListener("click", (e) => {
+    if (e.clientX > innerWidth * 0.55) show(i + 1);
+    else show(i - 1);
+  });
+  show(0);
+</script>
+</body>
+</html>

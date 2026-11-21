@@ -152,3 +152,9 @@ Workflow importable : trigger manuel → HTTP Jane Doe → décompte des paniers
 
 **2026-11-21 — Script de démo avant le rapport.**
 docs/demo.md : 8-10 min, invité d'abord, fiche (6 axes / gaps / simulation) comme écran à soigner, PUT sans rescoring, compte pour sauver, chat outils, eval ou n8n en option. En v2 : enregistrement vidéo figée.
+
+**2026-11-21 — Rapport final dans docs/rapport.md.**
+Nourri par le journal : domain pur, LLM n'invente pas le score, agent = outils, 12 cas + seconde passe, n8n hors calcul. Livrable académique en français.
+
+**2026-11-21 — Slides HTML, un ou deux par section du rapport.**
+docs/slides.html : deck autonome, flèches clavier. Moins dense que le rapport ; la contrainte « le LLM ne score pas » reste le fil.
