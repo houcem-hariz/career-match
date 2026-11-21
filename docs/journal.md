@@ -147,3 +147,8 @@ Le cap d'extraction d'offre pose 5 compétences mandatory. Avec max=2, Jane + Se
 
 **2026-10-28 — n8n consomme POST /api/match, ne score pas.**
 Workflow importable : trigger manuel → HTTP Jane Doe → décompte des paniers. En v2 : cron + notification mail.
+
+## Semaine 8
+
+**2026-11-21 — Script de démo avant le rapport.**
+docs/demo.md : 8-10 min, invité d'abord, fiche (6 axes / gaps / simulation) comme écran à soigner, PUT sans rescoring, compte pour sauver, chat outils, eval ou n8n en option. En v2 : enregistrement vidéo figée.

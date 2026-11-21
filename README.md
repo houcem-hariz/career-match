@@ -63,3 +63,4 @@ dans [docs/wireframes](docs/wireframes/README.md). La doc API (OpenAPI / Swagger
 est dans [docs/api.md](docs/api.md). Le brief Next.js (semaine 5) est dans
 [docs/frontend.md](docs/frontend.md). Le jeu annoté est dans
 [docs/eval.md](docs/eval.md) ; n8n dans [docs/n8n.md](docs/n8n.md).
+Le script de démo orale est dans [docs/demo.md](docs/demo.md).
