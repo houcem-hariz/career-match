@@ -1,0 +1,11 @@
+{
+  "profile_id": "leo_data",
+  "target_title": "Junior Data Analyst",
+  "target_families": ["data"],
+  "total_years_experience": 1.5,
+  "seniority": 1,
+  "skills": [
+    {"skill_id": "python", "level": 2},
+    {"skill_id": "sql", "level": 2}
+  ]
+}

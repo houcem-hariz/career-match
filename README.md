@@ -43,6 +43,7 @@ uv run python -m career_match.cli.mcp_server
 uv run python -m career_match.cli.mcp_client list
 uv run python -m career_match.cli.mcp_client match ../data/raw/cvs/jane_doe_backend.pdf --k 10
 uv run python -m career_match.cli.serve
+uv run python -m career_match.cli.eval_cases
 ```
 
 ## Avancement
@@ -53,11 +54,12 @@ uv run python -m career_match.cli.serve
 - [x] Semaine 4 : pipeline LangGraph, serveur et client MCP
 - [x] Semaine 5 : API, front, écran offres/détail
 - [x] Semaine 6 : écran profil, chat, agent conversationnel
-- [ ] Semaine 7 : n8n, jeu de cas annoté, seconde passe scoring
+- [x] Semaine 7 : n8n, jeu de cas annoté, seconde passe scoring
 - [ ] Semaine 8 : rapport, démo
 
 Les décisions de conception et les raccourcis assumés sont consignés dans
 [docs/journal.md](docs/journal.md). Les maquettes d'interface (fil de fer) sont
 dans [docs/wireframes](docs/wireframes/README.md). La doc API (OpenAPI / Swagger)
 est dans [docs/api.md](docs/api.md). Le brief Next.js (semaine 5) est dans
-[docs/frontend.md](docs/frontend.md).
+[docs/frontend.md](docs/frontend.md). Le jeu annoté est dans
+[docs/eval.md](docs/eval.md) ; n8n dans [docs/n8n.md](docs/n8n.md).
